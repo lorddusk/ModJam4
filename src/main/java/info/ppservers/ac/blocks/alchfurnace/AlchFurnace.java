@@ -96,15 +96,13 @@ public class AlchFurnace extends BlockContainer {
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9) {
         if (world.isRemote) {
             return true;
-        } else if (!player.isSneaking()){
-            TileEntityAlchFurnace tileEntity = (TileEntityAlchFurnace) world.getTileEntity(x, y, z);
-            if (tileEntity != null) {
-                player.openGui(AlchemicalCombination.instance, 0, world, x, y, z);
+        } else {
+            TileEntityAlchFurnace tileEntityAlchFurnace = (TileEntityAlchFurnace) world.getTileEntity(x, y, z);
+            if (tileEntityAlchFurnace != null) {
+                player.openGui(AlchemicalCombination.instance,0,world,(int)player.posX,(int)player.posY,(int)player.posZ);
             }
             return true;
-        }
-        else{
-            return false;
+
         }
     }
 
