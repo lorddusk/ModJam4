@@ -1,5 +1,7 @@
 package info.ppservers.ac.world;
 
+import info.ppservers.ac.blocks.ElementalLog;
+
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -29,12 +31,11 @@ public class ElementalTreeGen extends WorldGenerator {
 		boolean flag = true;
 		
 		if (par4 >= 1 && par4 + l + 1 <= 256) {
-			int i1;
 			byte b0;
-			int j1;
 			int k1;
+			Block block;
 			
-			for (i1 = par4; i1 <= par4 + 1 + l; ++i1) {
+			for (int i1 = par4; i1 <= par4 + 1 + l; ++i1) {
 				b0 = 1;
 				
 				if (i1 == par4) {
@@ -45,12 +46,16 @@ public class ElementalTreeGen extends WorldGenerator {
 					b0 = 2;
 				}
 				
-				for (int l1 = par3 - b0; l1 <= par3 + b0 && flag; ++l1) {
-					for (j1 = par5 - b0; j1 <= par5 + b0 && flag; ++j1) {
+				for (int j1 = par3 - b0; j1 <= par3 + b0 && flag; ++j1) {
+					for (k1 = par5 - b0; k1 <= par5 + b0 && flag; ++k1) {
 						if (i1 >= 0 && i1 < 256) {
-							k1 = par1World.getBlockMetadata(l1, i1, j1); // problematic
+							block = par1World.getBlock(j1, i1, k1);
 							
-							Block block = Block.
+							if(!this.isReplacable(par1World, j1, i1, k1)) {
+								
+							}
+							
+							
 						}
 					}
 				}
