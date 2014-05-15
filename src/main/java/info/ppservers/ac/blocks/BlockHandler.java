@@ -12,6 +12,10 @@ import net.minecraft.block.Block;
 public class BlockHandler {
     public static Block furnace;
     public static Block furnaceBurning;
+    public static Block elementalLog;
+    public static Block elementalLeaves;
+    public static Block elementalPlanks;
+    
 
     public static void init(){
         furnace = new AlchFurnace(false).setCreativeTab(AlchemicalCombination.ACTab);
@@ -20,6 +24,9 @@ public class BlockHandler {
 
     public static void registerBlocks(){
         GameRegistry.registerBlock(furnace,Info.FURNACE_NAME);
+        GameRegistry.registerBlock(elementalLog, Info.ELEMENTALLOG_NAME);
+        GameRegistry.registerBlock(elementalLeaves, Info.ELEMENTALLEAVES_NAME);
+        GameRegistry.registerBlock(elementalPlanks, Info.ELEMENTALPLANKS_NAME);
     }
 
     public static void registerTileEntities(){
