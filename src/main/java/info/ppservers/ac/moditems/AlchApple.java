@@ -17,14 +17,14 @@ public class AlchApple extends ItemFood{
 	private Object healAmount;
 	private Object isWolfsFavoriteMeat;
 	private Object saturationModifier;
-	private boolean alwaysEdible;
+	
 
 	public AlchApple(int healamount, float f, boolean Wolfmeat) {
 		super(healamount, Wolfmeat);
 		this.setCreativeTab(AlchemicalCombination.ACTab);
 		this.setCreativeTab(CreativeTabs.tabFood);
 		this.setMaxStackSize(16);
-		this.setAlwaysEdible();
+		
 		this.setUnlocalizedName("Alchapple");
 		this.setMaxDamage(3);
 		 this.healAmount = healamount;
@@ -78,11 +78,6 @@ public class AlchApple extends ItemFood{
 		par3List.add("balanced");
 		super.addInformation(par1ItemStack, par2EntityPlayer, par3List, par4);
 	}
-	  @Override
-	  public ItemFood setAlwaysEdible() {
-	
-		  this.alwaysEdible = false;
-		return this ;
-	  }
+	  
 }
 
