@@ -9,6 +9,7 @@ public class ElementalSapling extends BlockSapling{
 		this.setHardness(0.0F);
 		this.setStepSound(Block.soundTypeGrass);
 	}
+	
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.blockIcon = iconRegister.registerIcon("ac:ElementalSapling");
 	}	
