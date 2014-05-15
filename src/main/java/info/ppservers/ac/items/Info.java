@@ -17,7 +17,7 @@ public class Info {
     public static final String DULL_UNLOCALIZED_NAME = "dullGem";
     public static final String DULL_ICON = "dullGem";
 
-
+    public static final String ALCHAPPLE_NAME = "Alchemists Apple";
 
     private Info() {
     }

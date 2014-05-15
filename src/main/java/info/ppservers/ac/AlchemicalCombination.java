@@ -11,7 +11,6 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import info.ppservers.ac.blocks.BlockHandler;
 import info.ppservers.ac.client.interfaces.GuiHandler;
 import info.ppservers.ac.config.ConfigHandler;
-//import info.ppservers.ac.items.FuelHandler;
 import info.ppservers.ac.items.ItemHandler;
 import info.ppservers.ac.proxies.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
@@ -49,12 +48,10 @@ public class AlchemicalCombination {
         BlockHandler.init();
         BlockHandler.registerBlocks();
         BlockHandler.registerTileEntities();
-
-       // GameRegistry.registerFuelHandler(new FuelHandler());
     }
 
     @EventHandler
-    public void init(FMLInitializationEvent event) {
+    public void init(FMLInitializationEvent event){
 
         System.out.println("Register GuiHandler");
         instance = this;
