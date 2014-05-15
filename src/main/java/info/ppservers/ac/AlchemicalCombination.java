@@ -1,5 +1,6 @@
 package info.ppservers.ac;
 
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -8,9 +9,13 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import info.ppservers.ac.blocks.BlockHandler;
+import info.ppservers.ac.blocks.renders.RenderAlchFurnace;
 import info.ppservers.ac.client.interfaces.GuiHandler;
 import info.ppservers.ac.config.ConfigHandler;
+import info.ppservers.ac.items.FuelHandler;
+import info.ppservers.ac.items.ItemHandler;
 import info.ppservers.ac.proxies.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
@@ -41,9 +46,14 @@ public class AlchemicalCombination {
         path = event.getModConfigurationDirectory().getAbsolutePath() + File.separator + ModInformation.CONFIG_LOC_NAME.toLowerCase() + File.separator;
         ConfigHandler.init(path);
 
+        ItemHandler.init();
+        ItemHandler.registerItems();
+
         BlockHandler.init();
         BlockHandler.registerBlocks();
         BlockHandler.registerTileEntities();
+
+        GameRegistry.registerFuelHandler(new FuelHandler());
     }
 
     @EventHandler
@@ -54,6 +64,11 @@ public class AlchemicalCombination {
         NetworkRegistry.INSTANCE.registerGuiHandler(this, guiHandler);
         MinecraftForge.EVENT_BUS.register(this);
         System.out.println("Done");
+
+        BlockHandler.registerRenders();
+
+        ItemHandler.registerRecipes();
+        BlockHandler.registerRecipes();
 
     }
 

@@ -1,7 +1,10 @@
 package info.ppservers.ac.client.interfaces;
 
 import cpw.mods.fml.common.network.IGuiHandler;
+import info.ppservers.ac.client.inventory.ContainerAlchFurnace;
+import info.ppservers.ac.tileentity.TileEntityAlchFurnace;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 /**
@@ -11,18 +14,21 @@ public class GuiHandler implements IGuiHandler {
 
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
+        TileEntity tileEntity = world.getTileEntity(x,y,z);
         switch (ID) {
-            default:
-                return null;
+            case 0:
+                return new ContainerAlchFurnace(player.inventory,(TileEntityAlchFurnace)tileEntity);
         }
+        return null;
     }
 
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
+        TileEntity tileEntity = world.getTileEntity(x,y,z);
         switch (ID) {
-            default:
-                System.out.println("default");
-                return null;
+            case 0:
+                return new GuiAlchFurnace(player.inventory,(TileEntityAlchFurnace)tileEntity);
         }
+        return null;
     }
 }
