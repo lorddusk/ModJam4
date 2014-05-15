@@ -13,16 +13,16 @@ import org.lwjgl.opengl.GL11;
  */
 public class GuiAlchFurnace extends GuiContainer {
     private static final ResourceLocation TEXTURE = ResourceHelper.getResource("furnace");
-    private TileEntityAlchFurnace tileEntityAlchFurnace;
+    private TileEntityAlchFurnace alchFurnace;
 
     public GuiAlchFurnace(InventoryPlayer inventoryPlayer, TileEntityAlchFurnace tileEntityAlchFurnace) {
         super(new ContainerAlchFurnace(inventoryPlayer, tileEntityAlchFurnace));
-        this.tileEntityAlchFurnace = tileEntityAlchFurnace;
+        this.alchFurnace = tileEntityAlchFurnace;
     }
 
     @Override
     protected void drawGuiContainerForegroundLayer(int par1, int par2) {
-        String s = tileEntityAlchFurnace.hasCustomInventoryName() ? tileEntityAlchFurnace.getInventoryName() : I18n.format(tileEntityAlchFurnace.getInventoryName(), new Object[0]);
+        String s = alchFurnace.hasCustomInventoryName() ? alchFurnace.getInventoryName() : I18n.format(alchFurnace.getInventoryName(), new Object[0]);
         fontRendererObj.drawString(s, xSize / 2 - fontRendererObj.getStringWidth(s) / 2, 6, 4210752);
         fontRendererObj.drawString(I18n.format("container.inventory", new Object[0]), 8, ySize - 96 + 2, 4210752);
     }
@@ -30,16 +30,18 @@ public class GuiAlchFurnace extends GuiContainer {
     @Override
     protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3) {
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        mc.getTextureManager().bindTexture(TEXTURE);
+        ResourceHelper.bindResource(TEXTURE);
         int k = (width - xSize) / 2;
         int l = (height - ySize) / 2;
         drawTexturedModalRect(k, l, 0, 0, xSize, ySize);
         int i;
-        if (tileEntityAlchFurnace.isBurning()) {
-            i = tileEntityAlchFurnace.getBurnTimeRemainingScale(12);
+
+        if (alchFurnace.isBurning()) {
+            i = alchFurnace.getBurnTimeRemainingScale(12);
             drawTexturedModalRect(k + 56, l + 36 + 12 - i, 176, 12 - i, 14, i + 2);
         }
-        i = tileEntityAlchFurnace.getCookProgessScaled(24);
+
+        i = alchFurnace.getCookProgessScaled(24);
         drawTexturedModalRect(k + 79, l + 34, 176, 14, i + 1, 16);
     }
 }

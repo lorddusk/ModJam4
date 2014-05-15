@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
  */
 public abstract class ResourceHelper {
     public static ResourceLocation getResource(String name){
-        return new ResourceLocation("AlchCom", "assets/AlchCom/gui/" +name+".png");
+        return new ResourceLocation("alchcom", "textures/gui/" +name+".png");
     }
 
     public static void bindResource(ResourceLocation resourceLocation){

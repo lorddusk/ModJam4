@@ -1,6 +1,7 @@
 package info.ppservers.ac.blocks;
 
 
+import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.registry.GameRegistry;
 import info.ppservers.ac.AlchemicalCombination;
 import info.ppservers.ac.tileentity.TileEntityAlchFurnace;
@@ -9,7 +10,7 @@ import net.minecraft.block.Block;
 /**
  * Created by Tim on 5/15/2014.
  */
-public class BlockHandler {
+public abstract class BlockHandler implements IGuiHandler{
     public static Block furnace;
     public static Block furnaceBurning;
 
