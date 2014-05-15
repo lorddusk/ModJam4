@@ -3,13 +3,11 @@ package info.ppservers.ac.client.inventory;
 import cpw.mods.fml.relauncher.SideOnly;
 import info.ppservers.ac.crafting.AlchFurnaceRecipes;
 import info.ppservers.ac.tileentity.TileEntityAlchFurnace;
-import javafx.geometry.Side;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
-import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
 
 /**
@@ -26,7 +24,7 @@ public class ContainerAlchFurnace extends Container {
         tileEntityAlchFurnace = entityAlchFurnace;
         addSlotToContainer(new Slot(entityAlchFurnace, 0, 56, 17));
         addSlotToContainer(new Slot(entityAlchFurnace, 1, 56, 53));
-        addSlotToContainer(new SlotFurnace(inventoryPlayer.player, entityAlchFurnace, 2, 116, 35));
+        addSlotToContainer(new SlotAlchFurnace(inventoryPlayer.player, entityAlchFurnace, 2, 116, 35));
         int i;
         for (i = 0; i < 3; ++i) {
             for (int j = 0; j < 9; ++j) {

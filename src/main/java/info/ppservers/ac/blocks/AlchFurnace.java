@@ -17,6 +17,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -95,13 +96,15 @@ public class AlchFurnace extends BlockContainer {
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9) {
         if (world.isRemote) {
             return true;
-        } else {
-            TileEntityAlchFurnace tileEntityAlchFurnace = (TileEntityAlchFurnace) world.getTileEntity(x, y, z);
-            if (tileEntityAlchFurnace != null) {
-                player.openGui(AlchemicalCombination.instance,0,world,(int)player.posX,(int)player.posY,(int)player.posZ);
+        } else if (!player.isSneaking()){
+            TileEntityAlchFurnace tileEntity = (TileEntityAlchFurnace) world.getTileEntity(x, y, z);
+            if (tileEntity != null) {
+                player.openGui(AlchemicalCombination.instance, 0, world, x, y, z);
             }
             return true;
-
+        }
+        else{
+            return false;
         }
     }
 

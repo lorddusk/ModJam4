@@ -61,6 +61,8 @@ public class AlchFurnaceRecipes{
         this.addBlockSmelting(Blocks.redstone_ore, new ItemStack(Items.redstone), 0.7F);
         this.addBlockSmelting(Blocks.lapis_ore, new ItemStack(Items.dye, 1, 4), 0.2F);
         this.addBlockSmelting(Blocks.quartz_ore, new ItemStack(Items.quartz), 0.2F);
+
+        this.addBlockSmelting(Blocks.diamond_block, new ItemStack(Blocks.dirt), 0.1F);
     }
 
     public void addBlockSmelting(Block block, ItemStack itemStack, float xp) {
