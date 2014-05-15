@@ -94,6 +94,7 @@ public class AlchFurnace extends BlockContainer {
                 player.func_146101_a(tileEntityAlchFurnace);
             }
             return true;
+
         }
     }
 
