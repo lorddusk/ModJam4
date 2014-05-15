@@ -10,10 +10,10 @@ public class ElementalPlanks extends Block{
 	public ElementalPlanks() {
 		super(Material.wood);
 		this.setStepSound(soundTypeWood);
-		this.setBlockName(Info.ELEMENTALLOG_NAME);
+		this.setBlockName(Info.ELEMENTALPLANKS_NAME);
 	}
 	
 	public void registerBlockIcons(IIconRegister p_149651_1_) {
-		this.blockIcon = p_149651_1_.registerIcon("ac:ElementalLog");
+		this.blockIcon = p_149651_1_.registerIcon("ac:ElementalPlanks");
 	}	
 }

@@ -10,7 +10,7 @@ public class ElementalLeaves extends Block{
 	public ElementalLeaves() {
 		super(Material.wood);
 		this.setStepSound(soundTypeWood);
-		this.setBlockName(Info.ELEMENTALLOG_NAME);
+		this.setBlockName(Info.ELEMENTALLEAVES_NAME);
 	}
 	
 	public void registerBlockIcons(IIconRegister p_149651_1_) {
