@@ -1,4 +1,4 @@
-package info.ppservers.ac.moditems;
+package info.ppservers.ac.items;
 
 import java.util.List;
 
@@ -13,20 +13,19 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.world.World;
 
-public class Alchbread extends ItemFood {
+public class AlchBread extends ItemFood {
 
 	private Object healAmount;
 	private Object isWolfsFavoriteMeat;
 	private Object saturationModifier;
 
-	public Alchbread(int healamnt_, float saturatamnt, boolean wolfmeat_) {
+	public AlchBread(int healamnt_, float saturatamnt, boolean wolfmeat_) {
 		super(healamnt_, saturatamnt, wolfmeat_);
 		
 		this.setCreativeTab(AlchemicalCombination.ACTab);
-		this.setCreativeTab(CreativeTabs.tabFood);
 		this.setMaxStackSize(16);
 		this.setAlwaysEdible();
-		this.setUnlocalizedName("Alchapple");
+		this.setUnlocalizedName("Alchbread");
 		this.setMaxDamage(3);
 		this.healAmount = healamnt_;
 	    this.isWolfsFavoriteMeat = wolfmeat_; 

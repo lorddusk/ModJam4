@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "AC",
+  "name": "Alchemical Combination",
+  "description": "TBD",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["PrimePixel"],
+  "credits": "Random People",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

@@ -7,10 +7,14 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import info.ppservers.ac.blocks.BlockHandler;
+import info.ppservers.ac.client.interfaces.GuiHandler;
 import info.ppservers.ac.config.ConfigHandler;
-import info.ppservers.ac.moditems.Alchitems;
+import info.ppservers.ac.items.ItemHandler;
 import info.ppservers.ac.proxies.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.common.MinecraftForge;
 
 import java.io.File;
 
@@ -29,24 +33,40 @@ public class AlchemicalCombination {
 
     public static CreativeTabs ACTab = new ACTab(CreativeTabs.getNextID(), "Alchemical Combination");
 
+    public static GuiHandler guiHandler = new GuiHandler();
+
     public static String path;
 
     @EventHandler
-    public void preInit(FMLPreInitializationEvent event){
+    public void preInit(FMLPreInitializationEvent event) {
         path = event.getModConfigurationDirectory().getAbsolutePath() + File.separator + ModInformation.CONFIG_LOC_NAME.toLowerCase() + File.separator;
         ConfigHandler.init(path);
-        
-        Alchitems.init();
-		Alchitems.RegisterItems();
+
+        ItemHandler.init();
+        ItemHandler.registerItems();
+
+        BlockHandler.init();
+        BlockHandler.registerBlocks();
+        BlockHandler.registerTileEntities();
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event){
-    		
+
+        System.out.println("Register GuiHandler");
+        instance = this;
+        NetworkRegistry.INSTANCE.registerGuiHandler(this, guiHandler);
+        MinecraftForge.EVENT_BUS.register(this);
+        System.out.println("Done");
+
+        BlockHandler.registerRenders();
+
+        ItemHandler.registerRecipes();
+        BlockHandler.registerRecipes();
+
     }
 
     @EventHandler
-    public void postInit(FMLPostInitializationEvent event){
-
+    public void postInit(FMLPostInitializationEvent event) {
     }
 }
