@@ -10,8 +10,9 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
-public class ElementalTreeGen extends WorldGenerator {
+public class ElementalTreeGen extends WorldGenAbstractTree {
 	private final int minimalHeight;    // Height
 	private final boolean vines;		// Vines
 	private final int metadataLog;		// Log Metadata
@@ -80,6 +81,7 @@ public class ElementalTreeGen extends WorldGenerator {
 				}
 			}
 		}
+		return flag;
 	}
 
 }
