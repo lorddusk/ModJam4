@@ -81,7 +81,7 @@ public class ElementalTreeGen extends WorldGenAbstractTree {
 				}
 			}
 		}
-		return flag;
+		return flag; //To remove the errors. Me = derp
 	}
 
 }
