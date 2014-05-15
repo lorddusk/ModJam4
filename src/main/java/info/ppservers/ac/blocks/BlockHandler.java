@@ -14,15 +14,24 @@ public abstract class BlockHandler {
 
     public static Block furnace;
     public static Block furnaceBurning;
+    public static Block elementalLog;
+    public static Block elementalLeaves;
+    public static Block elementalPlanks;
 
     public static void init() {
         furnace = new AlchFurnace(false).setBlockName("alchFurnace").setCreativeTab(AlchemicalCombination.ACTab);
         furnaceBurning = new AlchFurnace(true).setBlockName("alchFurnaceBurning").setLightLevel(0.875F);
+        elementalLog = new ElementalLog().setCreativeTab(AlchemicalCombination.ACTab);
+        elementalLeaves = new ElementalLeaves().setCreativeTab(AlchemicalCombination.ACTab);
+        elementalPlanks = new ElementalPlanks().setCreativeTab(AlchemicalCombination.ACTab);
     }
 
     public static void registerBlocks() {
         GameRegistry.registerBlock(furnace,Info.FURNACE_NAME);
         GameRegistry.registerBlock(furnaceBurning,Info.FURNACE_NAME+"Burning");
+        GameRegistry.registerBlock(elementalLog, Info.ELEMENTALLOG_NAME);
+        GameRegistry.registerBlock(elementalLeaves, Info.ELEMENTALLEAVES_NAME);
+        GameRegistry.registerBlock(elementalPlanks, Info.ELEMENTALPLANKS_NAME);
     }
 
     public static void registerTileEntities() {
