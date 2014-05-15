@@ -1,14 +1,12 @@
-package info.ppservers.ac.tileentity;
+package info.ppservers.ac.blocks.alchfurnace;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import info.ppservers.ac.blocks.AlchFurnace;
+import info.ppservers.ac.blocks.alchfurnace.AlchFurnace;
 import info.ppservers.ac.blocks.BlockHandler;
-import info.ppservers.ac.crafting.AlchFurnaceRecipes;
+import info.ppservers.ac.blocks.alchfurnace.AlchFurnaceRecipes;
 import info.ppservers.ac.items.ItemHandler;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -17,7 +15,6 @@ import net.minecraft.item.*;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityFurnace;
 
 /**
  * Created by Tim on 5/15/2014.
@@ -144,6 +141,7 @@ public class TileEntityAlchFurnace extends TileEntity implements ISidedInventory
         }
     }
 
+    @Override
     public void updateEntity() {
         boolean flag = this.furnaceBurnTime > 0;
         boolean flag1 = false;
@@ -172,9 +170,12 @@ public class TileEntityAlchFurnace extends TileEntity implements ISidedInventory
                     this.smeltItem();
                     flag1 = true;
                 }
-            } else {
+            }
+            else {
                 this.furnaceCookTime = 0;
             }
+
+
             if (flag != this.furnaceBurnTime > 0) {
                 flag1 = true;
                 AlchFurnace.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
@@ -226,18 +227,18 @@ public class TileEntityAlchFurnace extends TileEntity implements ISidedInventory
             Item item = itemStack.getItem();
             if (item instanceof ItemBlock && Block.getBlockFromItem(item) != Blocks.air) {
                 Block block = Block.getBlockFromItem(item);
-                if(block == BlockHandler.alchCoalBlock){
-                    return 16000;
+                if (block == BlockHandler.alchCoalBlock) {
+                    return 2000;
                 }
             }
-            if(item == ItemHandler.alchCoal){
-                return 1600;
+            if (item == ItemHandler.alchCoal) {
+                return 200;
             }
         }
         return 0;
     }
 
-    public int getSpeedIncrease(){
+    public int getSpeedIncrease() {
         return speedIncrease;
     }
 

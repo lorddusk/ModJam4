@@ -1,6 +1,5 @@
 package info.ppservers.ac;
 
-import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -9,9 +8,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
 import info.ppservers.ac.blocks.BlockHandler;
-import info.ppservers.ac.blocks.renders.RenderAlchFurnace;
 import info.ppservers.ac.client.interfaces.GuiHandler;
 import info.ppservers.ac.config.ConfigHandler;
 //import info.ppservers.ac.items.FuelHandler;
@@ -74,6 +71,5 @@ public class AlchemicalCombination {
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-
     }
 }

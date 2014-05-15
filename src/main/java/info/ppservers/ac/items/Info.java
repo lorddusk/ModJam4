@@ -13,6 +13,12 @@ public class Info {
     public static final String COAL_UNLOCALIZED_NAME = "alchCoal";
     public static final String COAL_ICON = "alchCoal";
 
+    public static final String DULL_KEY = "dullGem";
+    public static final String DULL_UNLOCALIZED_NAME = "dullGem";
+    public static final String DULL_ICON = "dullGem";
+
+
+
     private Info() {
     }
 }

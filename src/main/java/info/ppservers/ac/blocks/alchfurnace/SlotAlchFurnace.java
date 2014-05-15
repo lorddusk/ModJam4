@@ -1,8 +1,6 @@
-package info.ppservers.ac.client.inventory;
+package info.ppservers.ac.blocks.alchfurnace;
 
 import cpw.mods.fml.common.FMLCommonHandler;
-import info.ppservers.ac.crafting.AlchFurnaceRecipes;
-import info.ppservers.ac.tileentity.TileEntityAlchFurnace;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;

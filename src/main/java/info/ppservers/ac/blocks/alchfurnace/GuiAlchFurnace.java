@@ -1,9 +1,8 @@
-package info.ppservers.ac.client.interfaces;
+package info.ppservers.ac.blocks.alchfurnace;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import info.ppservers.ac.client.inventory.ContainerAlchFurnace;
-import info.ppservers.ac.tileentity.TileEntityAlchFurnace;
+import info.ppservers.ac.client.interfaces.ResourceHelper;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;

@@ -1,8 +1,9 @@
 package info.ppservers.ac.client.interfaces;
 
 import cpw.mods.fml.common.network.IGuiHandler;
-import info.ppservers.ac.client.inventory.ContainerAlchFurnace;
-import info.ppservers.ac.tileentity.TileEntityAlchFurnace;
+import info.ppservers.ac.blocks.alchfurnace.GuiAlchFurnace;
+import info.ppservers.ac.blocks.alchfurnace.ContainerAlchFurnace;
+import info.ppservers.ac.blocks.alchfurnace.TileEntityAlchFurnace;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;

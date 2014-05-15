@@ -1,9 +1,10 @@
-package info.ppservers.ac.blocks;
+package info.ppservers.ac.blocks.alchfurnace;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import info.ppservers.ac.AlchemicalCombination;
-import info.ppservers.ac.tileentity.TileEntityAlchFurnace;
+import info.ppservers.ac.blocks.BlockHandler;
+import info.ppservers.ac.blocks.Info;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -17,7 +18,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;

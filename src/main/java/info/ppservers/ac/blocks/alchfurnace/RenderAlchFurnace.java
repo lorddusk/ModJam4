@@ -1,4 +1,4 @@
-package info.ppservers.ac.blocks.renders;
+package info.ppservers.ac.blocks.alchfurnace;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import info.ppservers.ac.blocks.BlockHandler;
