@@ -4,6 +4,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import info.ppservers.ac.blocks.AlchFurnace;
+import info.ppservers.ac.blocks.BlockHandler;
 import info.ppservers.ac.crafting.AlchFurnaceRecipes;
 import info.ppservers.ac.items.ItemHandler;
 import net.minecraft.block.Block;
@@ -26,7 +27,7 @@ public class TileEntityAlchFurnace extends TileEntity implements ISidedInventory
     private static final int[] slotsTop = new int[]{0};
     private static final int[] slotsBottom = new int[]{2, 1};
     private static final int[] slotsSides = new int[]{1};
-    private static int speedIncrease = 2;
+    private int speedIncrease = 2;
 
     private ItemStack[] furnaceStack = new ItemStack[3];
 
@@ -124,13 +125,13 @@ public class TileEntityAlchFurnace extends TileEntity implements ISidedInventory
 
     @SideOnly(Side.CLIENT)
     public int getCookProgessScaled(int time) {
-        return this.furnaceCookTime * time / (200 / speedIncrease);
+        return this.furnaceCookTime * time / (200 / getSpeedIncrease());
     }
 
     @SideOnly(Side.CLIENT)
     public int getBurnTimeRemainingScaled(int time) {
         if (this.currentItemBurnTime == 0) {
-            this.currentItemBurnTime = (200 / speedIncrease);
+            this.currentItemBurnTime = (200 / getSpeedIncrease());
         }
         return this.furnaceBurnTime * time / this.currentItemBurnTime;
     }
@@ -166,7 +167,7 @@ public class TileEntityAlchFurnace extends TileEntity implements ISidedInventory
             }
             if (this.isBurning() && this.canSmelt()) {
                 ++this.furnaceCookTime;
-                if (this.furnaceCookTime == (200 / speedIncrease)) {
+                if (this.furnaceCookTime == (200 / getSpeedIncrease())) {
                     this.furnaceCookTime = 0;
                     this.smeltItem();
                     flag1 = true;
@@ -225,12 +226,19 @@ public class TileEntityAlchFurnace extends TileEntity implements ISidedInventory
             Item item = itemStack.getItem();
             if (item instanceof ItemBlock && Block.getBlockFromItem(item) != Blocks.air) {
                 Block block = Block.getBlockFromItem(item);
+                if(block == BlockHandler.alchCoalBlock){
+                    return 16000;
+                }
             }
             if(item == ItemHandler.alchCoal){
                 return 1600;
             }
         }
         return 0;
+    }
+
+    public int getSpeedIncrease(){
+        return speedIncrease;
     }
 
     public static boolean isItemFuel(ItemStack itemStack) {
