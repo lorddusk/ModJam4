@@ -8,6 +8,12 @@ public abstract class Info {
     public static final String FURNACE_UNLOCALIZED_NAME = "alchFurnace";
     public static final String FURNACE_NAME = "Alchemical Furnace";
     public static final String FURNACE_ICON = "alchFurnace";
+    
+    public static final String FLAVA_KEY = "alchemical lava";
+    public static final String FLAVA_UNLOCALIZED_NAME = "alchlava";
+    public static final String FLAVA_NAME = "Alchemical lava";
+    public static final String FLAVA_ICON = "alchlava";
+
 
     private Info(){};
 }
