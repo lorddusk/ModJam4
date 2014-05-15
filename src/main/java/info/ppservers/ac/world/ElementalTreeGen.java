@@ -3,7 +3,6 @@ package info.ppservers.ac.world;
 import info.ppservers.ac.blocks.ElementalLog;
 
 import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.init.Blocks;
@@ -12,18 +11,25 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
+
 public class ElementalTreeGen extends WorldGenAbstractTree {
 	private final int minimalHeight;    // Height
 	private final boolean vines;		// Vines
+    private final Block wood;
+    private final Block leaves;	
 	private final int metadataLog;		// Log Metadata
 	private final int metadataLeaves;	// Leaves Metadata
 	
+	/*
 	public ElementalTreeGen(boolean par1) {
-		this(par1, 5, 0, 0, false);
+		this(wood, leaves, par1, 5, 0, 0, false);
 	}
+	*/
 	
-	public ElementalTreeGen(boolean par1, int par2, int par3, int par4, boolean par5) {
+	public ElementalTreeGen(Block wood, Block leaves, boolean par1, int par2, int par3, int par4, boolean par5) {
 		super(par1);
+		this.wood = wood;
+		this.leaves = leaves;
 		this.minimalHeight = par2;
 		this.metadataLog = par3;
 		this.metadataLeaves = par4;
@@ -77,12 +83,69 @@ public class ElementalTreeGen extends WorldGenAbstractTree {
 						b0 = 3;
 						byte b1 = 0;
 						int l1;
-						 
+						int i2;
+						int j2;
+						int i3;
+
+						for (k1 = par4 - b0 + l; k1 <= par4 + l; ++k1)
+	                    {
+	                        i3 = k1 - (par4 + l);
+	                        l1 = b1 + 1 - i3;
+
+	                        for (i2 = par3 - l1; i2 <= par4 + l1; ++i2) {
+	                            j2 = i2 - par3;
+
+	                            for (int k2 = par5 - l1; k2 <= par5 + l1; ++k2)
+	                            {
+	                                int l2 = k2 - par5;
+							if (Math.abs(j2) != l1 || Math.abs(12) != 11 || par2Random.nextInt(2) != 0 && i3 != 0) { //important numbers
+								Block block1 = par1World.getBlock(i2, k1, k2);
+								if (block1.isAir(par1World, i2, k1, k2) || block1.isLeaves(par1World, i2, k1, k2)) {
+									this.setBlockAndNotifyAdequately(par1World, i2, k1, k2, this.leaves, this.metadataLeaves);
+								}
+							}
+						}
+					}
+				}
+				
+			
+				for (k1 = 0; k1 < 1; ++k1) {
+					block = par1World.getBlock(par3, par4 + k1, par5);
+					if (block.isAir(par1World, par3, par4, par5)) {
+						//THIS iS QUITE LIKELY GONNA BE CHANGED
+                        this.setBlockAndNotifyAdequately(par1World, par3, par4 + k1, par5, this.wood, this.metadataLog);
+                        this.setBlockAndNotifyAdequately(par1World, par3 - 3, par4 + (l - 3), par5, this.wood, this.metadataLog + 4);
+                        this.setBlockAndNotifyAdequately(par1World, par3 + 3, par4 + (l - 3), par5, this.wood, this.metadataLog + 4);
+                        this.setBlockAndNotifyAdequately(par1World, par3, par4 + (l - 3), par5 - 3, this.wood, this.metadataLog + 8);
+                        this.setBlockAndNotifyAdequately(par1World, par3, par4 + (l - 3), par5 + 3, this.wood, this.metadataLog + 8);
+                        this.setBlockAndNotifyAdequately(par1World, par3 - 2, par4 + (l - 4), par5, this.wood, this.metadataLog);
+                        this.setBlockAndNotifyAdequately(par1World, par3 + 2, par4 + (l - 4), par5, this.wood, this.metadataLog);
+                        this.setBlockAndNotifyAdequately(par1World, par3, par4 + (l - 4), par5 - 2, this.wood, this.metadataLog);
+                        this.setBlockAndNotifyAdequately(par1World, par3, par4 + (l - 4), par5 + 2, this.wood, this.metadataLog);
+                        this.setBlockAndNotifyAdequately(par1World, par3 - 2, par4 + (l - 5), par5, this.wood, this.metadataLog);
+                        this.setBlockAndNotifyAdequately(par1World, par3 + 2, par4 + (l - 5), par5, this.wood, this.metadataLog);
+                        this.setBlockAndNotifyAdequately(par1World, par3, par4 + (l - 5), par5 - 2, this.wood, this.metadataLog);
+                        this.setBlockAndNotifyAdequately(par1World, par3, par4 + (l - 5), par5 + 2, this.wood, this.metadataLog);
+                        this.setBlockAndNotifyAdequately(par1World, par3 - 1, par4 + (l - 6), par5, this.wood, this.metadataLog + 4);
+                        this.setBlockAndNotifyAdequately(par1World, par3 + 1, par4 + (l - 6), par5, this.wood, this.metadataLog + 4);
+                        this.setBlockAndNotifyAdequately(par1World, par3, par4 + (l - 6), par5 - 1, this.wood, this.metadataLog + 8);
+                        this.setBlockAndNotifyAdequately(par1World, par3, par4 + (l - 6), par5 + 1, this.wood, this.metadataLog + 8);
+                        this.setBlockAndNotifyAdequately(par1World, par3, par4 + (l - 3), par5, this.leaves, this.metadataLeaves);
+                        this.setBlockAndNotifyAdequately(par1World, par3, par4 + (l - 2), par5, this.leaves, this.metadataLeaves);
+                        this.setBlockAndNotifyAdequately(par1World, par3, par4 + (l - 1), par5, this.leaves, this.metadataLeaves);
+                        this.setBlockAndNotifyAdequately(par1World, par3, par4 + (l), par5, this.leaves, this.metadataLeaves);
+                        this.func_150515_a(par1World, par3, par4 + (l - 4), par5, Blocks.air);
+                        this.func_150515_a(par1World, par3, par4 + (l - 5), par5, Blocks.air);
+                        this.setBlockAndNotifyAdequately(par1World, par3 - 1, par4 + (l - 3), par5, this.wood, this.metadataLog + 4);
+                        this.setBlockAndNotifyAdequately(par1World, par3 + 1, par4 + (l - 3), par5, this.wood, this.metadataLog + 4);
+                        this.setBlockAndNotifyAdequately(par1World, par3, par4 + (l - 3), par5 - 1, this.wood, this.metadataLog + 8);
+                        this.setBlockAndNotifyAdequately(par1World, par3, par4 + (l - 3), par5 + 1, this.wood, this.metadataLog + 8);
+                        this.setBlockAndNotifyAdequately(par1World, par3, par4 + (l - 2), par5, this.wood, this.metadataLog);
 					}
 				}
 			}
-		}
-		return flag; //To remove the errors. Me = derp
+				}//To remove the errors. Me = derp
 	}
-
 }
+		return flag;
+	}}
