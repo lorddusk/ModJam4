@@ -1,5 +1,6 @@
 package info.ppservers.ac.blocks;
 
+
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import info.ppservers.ac.AlchemicalCombination;
@@ -13,8 +14,7 @@ import net.minecraft.item.ItemStack;
 /**
  * Created by Tim on 5/15/2014.
  */
-public abstract class BlockHandler {
-
+public class BlockHandler {
     public static Block furnace;
     public static Block furnaceBurning;
 
@@ -39,6 +39,7 @@ public abstract class BlockHandler {
         elementalPlanks = new ElementalPlanks().setCreativeTab(AlchemicalCombination.ACTab);
     }
 
+
     public static void registerBlocks() {
         GameRegistry.registerBlock(furnace, Info.FURNACE_NAME);
         GameRegistry.registerBlock(furnaceBurning, Info.FURNACE_NAME + "Burning");
@@ -52,7 +53,7 @@ public abstract class BlockHandler {
         GameRegistry.registerBlock(elementalPlanks, Info.ELEMENTALPLANKS_NAME);
     }
 
-    public static void registerTileEntities() {
+    public static void registerTileEntities(){
         GameRegistry.registerTileEntity(TileEntityAlchFurnace.class, Info.FURNACE_KEY);
     }
 
@@ -68,4 +69,5 @@ public abstract class BlockHandler {
     }
 
     ;
+
 }
