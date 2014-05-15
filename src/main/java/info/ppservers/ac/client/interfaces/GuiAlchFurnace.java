@@ -17,7 +17,7 @@ public class GuiAlchFurnace extends GuiContainer {
 
     public GuiAlchFurnace(InventoryPlayer inventoryPlayer, TileEntityAlchFurnace tileEntityAlchFurnace) {
         super(new ContainerAlchFurnace(inventoryPlayer, tileEntityAlchFurnace));
-        this.alchFurnace = tileEntityAlchFurnace;
+        alchFurnace = tileEntityAlchFurnace;
     }
 
     @Override
@@ -37,7 +37,7 @@ public class GuiAlchFurnace extends GuiContainer {
         int i;
 
         if (alchFurnace.isBurning()) {
-            i = alchFurnace.getBurnTimeRemainingScale(12);
+            i = alchFurnace.getBurnTimeRemainingScaled(12);
             drawTexturedModalRect(k + 56, l + 36 + 12 - i, 176, 12 - i, 14, i + 2);
         }
 
