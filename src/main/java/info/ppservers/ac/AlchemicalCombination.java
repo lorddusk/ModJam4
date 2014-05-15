@@ -14,7 +14,7 @@ import info.ppservers.ac.blocks.BlockHandler;
 import info.ppservers.ac.blocks.renders.RenderAlchFurnace;
 import info.ppservers.ac.client.interfaces.GuiHandler;
 import info.ppservers.ac.config.ConfigHandler;
-import info.ppservers.ac.items.FuelHandler;
+//import info.ppservers.ac.items.FuelHandler;
 import info.ppservers.ac.items.ItemHandler;
 import info.ppservers.ac.proxies.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
@@ -53,7 +53,7 @@ public class AlchemicalCombination {
         BlockHandler.registerBlocks();
         BlockHandler.registerTileEntities();
 
-        GameRegistry.registerFuelHandler(new FuelHandler());
+       // GameRegistry.registerFuelHandler(new FuelHandler());
     }
 
     @EventHandler

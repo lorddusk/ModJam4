@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import info.ppservers.ac.blocks.AlchFurnace;
 import info.ppservers.ac.crafting.AlchFurnaceRecipes;
+import info.ppservers.ac.items.ItemHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,6 +26,7 @@ public class TileEntityAlchFurnace extends TileEntity implements ISidedInventory
     private static final int[] slotsTop = new int[]{0};
     private static final int[] slotsBottom = new int[]{2, 1};
     private static final int[] slotsSides = new int[]{1};
+    private static int speedIncrease = 2;
 
     private ItemStack[] furnaceStack = new ItemStack[3];
 
@@ -107,7 +109,7 @@ public class TileEntityAlchFurnace extends TileEntity implements ISidedInventory
 
     @Override
     public String getInventoryName() {
-        return this.hasCustomInventoryName() ? this.name : "container.furnace";
+        return this.hasCustomInventoryName() ? this.name : "Alchemical Furnace";
     }
 
     @Override
@@ -122,13 +124,13 @@ public class TileEntityAlchFurnace extends TileEntity implements ISidedInventory
 
     @SideOnly(Side.CLIENT)
     public int getCookProgessScaled(int time) {
-        return this.furnaceCookTime * time / 100;
+        return this.furnaceCookTime * time / (200 / speedIncrease);
     }
 
     @SideOnly(Side.CLIENT)
     public int getBurnTimeRemainingScaled(int time) {
         if (this.currentItemBurnTime == 0) {
-            this.currentItemBurnTime = 100;
+            this.currentItemBurnTime = (200 / speedIncrease);
         }
         return this.furnaceBurnTime * time / this.currentItemBurnTime;
     }
@@ -164,7 +166,7 @@ public class TileEntityAlchFurnace extends TileEntity implements ISidedInventory
             }
             if (this.isBurning() && this.canSmelt()) {
                 ++this.furnaceCookTime;
-                if (this.furnaceCookTime == 200) {
+                if (this.furnaceCookTime == (200 / speedIncrease)) {
                     this.furnaceCookTime = 0;
                     this.smeltItem();
                     flag1 = true;
@@ -223,42 +225,12 @@ public class TileEntityAlchFurnace extends TileEntity implements ISidedInventory
             Item item = itemStack.getItem();
             if (item instanceof ItemBlock && Block.getBlockFromItem(item) != Blocks.air) {
                 Block block = Block.getBlockFromItem(item);
-                if (block == Blocks.wooden_slab) {
-                    return 150;
-                }
-                if (block.getMaterial() == Material.wood) {
-                    return 300;
-                }
-                if (block == Blocks.coal_block) {
-                    return 16000;
-                }
             }
-            if (item instanceof ItemTool && ((ItemTool) item).getToolMaterialName().equals("WOOD")) {
-                return 200;
-            }
-            if (item instanceof ItemSword && ((ItemSword) item).getToolMaterialName().equals("WOOD")) {
-                return 200;
-            }
-            if (item instanceof ItemHoe && ((ItemHoe) item).getToolMaterialName().equals("WOOD")) {
-                return 200;
-            }
-            if (item == Items.stick) {
-                return 100;
-            }
-            if (item == Items.coal) {
+            if(item == ItemHandler.alchCoal){
                 return 1600;
             }
-            if (item == Items.lava_bucket) {
-                return 20000;
-            }
-            if (item == Item.getItemFromBlock(Blocks.sapling)) {
-                return 100;
-            }
-            if (item == Items.blaze_rod) {
-                return 2400;
-            }
-            return GameRegistry.getFuelValue(itemStack);
         }
+        return 0;
     }
 
     public static boolean isItemFuel(ItemStack itemStack) {
