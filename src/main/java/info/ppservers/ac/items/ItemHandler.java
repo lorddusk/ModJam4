@@ -24,7 +24,7 @@ public abstract class ItemHandler {
         dullGem = new DullGem().setUnlocalizedName(Info.DULL_UNLOCALIZED_NAME);
 
         AlchApple = new info.ppservers.ac.items.AlchApple(6, 0.6f, false);
-        Alchbread = new AlchBread(1, 0.6f, false);
+        Alchbread = new info.ppservers.ac.items.Alchbread(1, 0.6f, false);
     }
 
     public static void registerItems() {

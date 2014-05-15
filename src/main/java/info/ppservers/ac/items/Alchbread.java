@@ -13,13 +13,13 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.world.World;
 
-public class AlchBread extends ItemFood {
+public class Alchbread extends ItemFood {
 
 	private Object healAmount;
 	private Object isWolfsFavoriteMeat;
 	private Object saturationModifier;
 
-	public AlchBread(int healamnt_, float saturatamnt, boolean wolfmeat_) {
+	public Alchbread(int healamnt_, float saturatamnt, boolean wolfmeat_) {
 		super(healamnt_, saturatamnt, wolfmeat_);
 		
 		this.setCreativeTab(AlchemicalCombination.ACTab);
