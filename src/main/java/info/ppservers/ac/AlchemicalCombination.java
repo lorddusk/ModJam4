@@ -8,6 +8,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import info.ppservers.ac.config.ConfigHandler;
+import info.ppservers.ac.moditems.Alchitems;
 import info.ppservers.ac.proxies.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
 
@@ -34,11 +35,14 @@ public class AlchemicalCombination {
     public void preInit(FMLPreInitializationEvent event){
         path = event.getModConfigurationDirectory().getAbsolutePath() + File.separator + ModInformation.CONFIG_LOC_NAME.toLowerCase() + File.separator;
         ConfigHandler.init(path);
+        
+        Alchitems.init();
+		Alchitems.RegisterItems();
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event){
-
+    		
     }
 
     @EventHandler

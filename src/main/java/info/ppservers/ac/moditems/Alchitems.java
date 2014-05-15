@@ -16,7 +16,7 @@ public class Alchitems {
 	
 	public static void init(){
 		
-		AlchApple = new AlchApple(10, false);
+		AlchApple = new AlchApple(6, 0.6f, false);
 		
 		
 	}

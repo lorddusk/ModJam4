@@ -12,14 +12,21 @@ import net.minecraft.world.World;
 
 public class AlchApple extends ItemFood{
 
-	public AlchApple(int healammount, boolean Wolfmeat) {
-		super(healammount, Wolfmeat);
+	private Object healAmount;
+	private Object isWolfsFavoriteMeat;
+	private Object saturationModifier;
+
+	public AlchApple(int healamount, float f, boolean Wolfmeat) {
+		super(healamount, Wolfmeat);
 		this.setCreativeTab(AlchemicalCombination.ACTab);
 		this.setCreativeTab(CreativeTabs.tabFood);
 		this.setMaxStackSize(16);
 		this.setAlwaysEdible();
 		this.setUnlocalizedName("Alchapple");
 		this.setMaxDamage(3);
+		 this.healAmount = healamount;
+	        this.isWolfsFavoriteMeat = Wolfmeat; 
+	        this.saturationModifier = f;
 	}
 	
 	 public EnumRarity getRarity(ItemStack stack){
@@ -31,22 +38,34 @@ public class AlchApple extends ItemFood{
 	public  ItemStack onEaten(ItemStack stack, World world,
 			EntityPlayer player) {
 		if(!world.isRemote){
+			player.getFoodStats().func_151686_a(this, stack);
 			player.addPotionEffect(new PotionEffect(Potion.heal.id, 50 , 1));
 			player.addPotionEffect(new PotionEffect(Potion.regeneration.id ,50,1));
-			 stack.setItemDamage(stack.getItemDamage() -1);
-			 if(stack.getItemDamage() == 0){
-				 stack.stackSize --;
+			 //stack.setItemDamage(-1);
+			 onFoodEaten(stack, world, player);
+		 }
+//		else
+//        {
+//            super.onFoodEaten(stack, world, player);
+//
+//        }
+		return stack;}
+	
+	  
+	  @Override
+	protected void onFoodEaten(ItemStack stack, World world,
+			EntityPlayer player){ 
+	  int D = stack.getItemDamage();
+	  
+		  if(D > 0){
+				 stack.setItemDamage(D --);
+				 if(D == 0){
+					 stack.stackSize --;
+				 }
 			 }
-		}
-		else
-        {
-            super.onFoodEaten(stack, world, player);
-            stack.setItemDamage(stack.getItemDamage() -1);
-            if(stack.getItemDamage() == 0){
-				 stack.stackSize --;
-			 }
-        }
-		return stack;
+		 // else{ stack.stackSize --;}
+		super.onFoodEaten(stack, world, player);
 	}
 
 }
+
