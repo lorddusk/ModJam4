@@ -37,7 +37,7 @@ public class AlchemicalCombination {
     public static String path;
 
     @EventHandler
-    public void preInit(FMLPreInitializationEvent event){
+    public void preInit(FMLPreInitializationEvent event) {
         path = event.getModConfigurationDirectory().getAbsolutePath() + File.separator + ModInformation.CONFIG_LOC_NAME.toLowerCase() + File.separator;
         ConfigHandler.init(path);
 
@@ -47,7 +47,7 @@ public class AlchemicalCombination {
     }
 
     @EventHandler
-    public void init(FMLInitializationEvent event){
+    public void init(FMLInitializationEvent event) {
 
         System.out.println("Register GuiHandler");
         instance = this;
@@ -58,7 +58,7 @@ public class AlchemicalCombination {
     }
 
     @EventHandler
-    public void postInit(FMLPostInitializationEvent event){
+    public void postInit(FMLPostInitializationEvent event) {
 
     }
 }

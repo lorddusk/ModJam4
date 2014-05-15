@@ -9,7 +9,7 @@ import java.io.File;
  */
 public class ModConfig {
 
-    public static void init(File file){
+    public static void init(File file) {
         Configuration config = new Configuration(file);
 
         config.load();

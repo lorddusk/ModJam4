@@ -11,7 +11,7 @@ public class ConfigHandler {
 
     public static Configuration configuration;
 
-    public static void init(String configPath){
-        ModConfig.init(new File(configPath +"AlchCom.cfg"));
+    public static void init(String configPath) {
+        ModConfig.init(new File(configPath + "AlchCom.cfg"));
     }
 }
