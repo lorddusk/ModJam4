@@ -5,8 +5,11 @@ import info.ppservers.ac.blocks.ElementalLog;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockSapling;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class ElementalTreeGen extends WorldGenerator {
 	private final int minimalHeight;    // Height
@@ -51,18 +54,32 @@ public class ElementalTreeGen extends WorldGenerator {
 						if (i1 >= 0 && i1 < 256) {
 							block = par1World.getBlock(j1, i1, k1);
 							
-							if(!this.isReplacable(par1World, j1, i1, k1)) {
-								
+							if(!this.isReplaceable(par1World, j1, i1, k1)) {
+								flag = false;
 							}
-							
-							
+							else {
+								flag = false;
+							}
 						}
+					}
+				}
+				
+				if (!flag) {
+					return false;
+				}
+				else {
+					Block block2 = par1World.getBlock(par3, par4 - 1, par5);
+					
+					boolean isSoil = block2.canSustainPlant(par1World, par3, par4 - 1, par5, ForgeDirection.UP, (BlockSapling)Blocks.sapling);
+					if (isSoil && par4 < 256 - l - 1) {
+						block2.onPlantGrow(par1World, par3, par4 - 1, par5, par3, par4, par5);
+						b0 = 3;
+						byte b1 = 0;
+						
 					}
 				}
 			}
 		}
-		
-		return (Boolean) null;
 	}
 
 }
