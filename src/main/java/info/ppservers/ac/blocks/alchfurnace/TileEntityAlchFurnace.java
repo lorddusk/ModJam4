@@ -36,8 +36,7 @@ public class TileEntityAlchFurnace extends TileEntity implements ISidedInventory
 
     private String name;
 
-    public void func_145951_a(String p_145951_1_)
-    {
+    public void func_145951_a(String p_145951_1_) {
         this.name = p_145951_1_;
     }
 
@@ -48,7 +47,7 @@ public class TileEntityAlchFurnace extends TileEntity implements ISidedInventory
 
     @Override
     public boolean canInsertItem(int var1, ItemStack var2, int var3) {
-        return this.isItemValidForSlot(var1,var2);
+        return this.isItemValidForSlot(var1, var2);
     }
 
     @Override
@@ -62,8 +61,8 @@ public class TileEntityAlchFurnace extends TileEntity implements ISidedInventory
     }
 
     @Override
-    public ItemStack getStackInSlot(int var1) {
-        return this.furnaceStack[var1];
+    public ItemStack getStackInSlot(int par1) {
+        return this.furnaceStack[par1];
     }
 
     @Override
@@ -127,7 +126,7 @@ public class TileEntityAlchFurnace extends TileEntity implements ISidedInventory
     }
 
     @SideOnly(Side.CLIENT)
-    public int getBurnTimeRemainingScale(int time) {
+    public int getBurnTimeRemainingScaled(int time) {
         if (this.currentItemBurnTime == 0) {
             this.currentItemBurnTime = (200 / getSpeedIncrease());
         }
@@ -135,7 +134,11 @@ public class TileEntityAlchFurnace extends TileEntity implements ISidedInventory
     }
 
     public boolean isBurning() {
-        return this.furnaceBurnTime > 0;
+        if (furnaceBurnTime > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
@@ -239,13 +242,13 @@ public class TileEntityAlchFurnace extends TileEntity implements ISidedInventory
         return speedIncrease;
     }
 
-    public static boolean isItemFuel(ItemStack itemStack){
+    public static boolean isItemFuel(ItemStack itemStack) {
         return getItemBurnTime(itemStack) > 0;
     }
 
     @Override
     public boolean isUseableByPlayer(EntityPlayer player) {
-        return this.worldObj.getTileEntity(xCoord,yCoord,zCoord) != this ? false : player.getDistanceSq((double)xCoord + 0.5D, (double)yCoord + 0.5D, (double)zCoord + 0.5D)<= 64.0D;
+        return this.worldObj.getTileEntity(xCoord, yCoord, zCoord) != this ? false : player.getDistanceSq((double) xCoord + 0.5D, (double) yCoord + 0.5D, (double) zCoord + 0.5D) <= 64.0D;
     }
 
     @Override
@@ -263,15 +266,15 @@ public class TileEntityAlchFurnace extends TileEntity implements ISidedInventory
         return par1 == 2 ? false : (par1 == 1 ? isItemFuel(itemStack) : true);
     }
 
-    public void readFromNBT(NBTTagCompound tagCompound){
+    public void readFromNBT(NBTTagCompound tagCompound) {
         super.readFromNBT(tagCompound);
         NBTTagList nbtTagList = tagCompound.getTagList("Items", 10);
         this.furnaceStack = new ItemStack[this.getSizeInventory()];
 
-        for(int i = 0; i < nbtTagList.tagCount(); ++i){
+        for (int i = 0; i < nbtTagList.tagCount(); ++i) {
             NBTTagCompound nbtTagCompound = nbtTagList.getCompoundTagAt(i);
             byte b0 = nbtTagCompound.getByte("Slot");
-            if(b0 >= 0 && b0 < this.furnaceStack.length){
+            if (b0 >= 0 && b0 < this.furnaceStack.length) {
                 this.furnaceStack[b0] = ItemStack.loadItemStackFromNBT(nbtTagCompound);
             }
         }
@@ -279,27 +282,27 @@ public class TileEntityAlchFurnace extends TileEntity implements ISidedInventory
         this.furnaceCookTime = tagCompound.getShort("CookTime");
         this.currentItemBurnTime = getItemBurnTime(this.furnaceStack[1]);
 
-        if(tagCompound.hasKey("CustomName", 8)){
+        if (tagCompound.hasKey("CustomName", 8)) {
             this.name = tagCompound.getString("CustomName");
         }
     }
 
-    public void writeToNBT(NBTTagCompound tagCompound){
+    public void writeToNBT(NBTTagCompound tagCompound) {
         super.writeToNBT(tagCompound);
-        tagCompound.setShort("BurnTime", (short)this.furnaceBurnTime);
-        tagCompound.setShort("CookTime", (short)this.furnaceCookTime);
+        tagCompound.setShort("BurnTime", (short) this.furnaceBurnTime);
+        tagCompound.setShort("CookTime", (short) this.furnaceCookTime);
         NBTTagList nbtTagList = new NBTTagList();
 
-        for(int i = 0; i < this.furnaceStack.length; ++i){
-            if(this.furnaceStack[i] != null){
+        for (int i = 0; i < this.furnaceStack.length; ++i) {
+            if (this.furnaceStack[i] != null) {
                 NBTTagCompound nbtTagCompound = new NBTTagCompound();
-                nbtTagCompound.setByte("Slot", (byte)i);
+                nbtTagCompound.setByte("Slot", (byte) i);
                 this.furnaceStack[i].writeToNBT(nbtTagCompound);
                 nbtTagList.appendTag(nbtTagCompound);
             }
         }
         tagCompound.setTag("Items", nbtTagList);
-        if(this.hasCustomInventoryName()){
+        if (this.hasCustomInventoryName()) {
             tagCompound.setString("CustomName", this.name);
         }
     }
