@@ -9,7 +9,7 @@ import net.minecraft.block.Block;
 /**
  * Created by Tim on 5/15/2014.
  */
-public class AlchBlock {
+public class BlockHandler {
     public static Block furnace;
     public static Block furnaceBurning;
 
@@ -26,5 +26,5 @@ public class AlchBlock {
         GameRegistry.registerTileEntity(TileEntityAlchFurnace.class, Info.FURNACE_KEY);
     }
 
-    private AlchBlock(){};
+    private BlockHandler(){};
 }
