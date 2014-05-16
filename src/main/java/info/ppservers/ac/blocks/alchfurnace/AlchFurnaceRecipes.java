@@ -1,6 +1,7 @@
 package info.ppservers.ac.blocks.alchfurnace;
 
 import info.ppservers.ac.blocks.BlockHandler;
+import info.ppservers.ac.items.ItemHandler;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -28,6 +29,7 @@ public class AlchFurnaceRecipes {
 
     private AlchFurnaceRecipes() {
         this.addBlockSmelting(Blocks.stone, new ItemStack(BlockHandler.alchStone), 0.1F);
+        this.addBlockSmelting(BlockHandler.trolliumOre, new ItemStack(ItemHandler.trolliumIngot), 0.375F);
     }
 
     public void addBlockSmelting(Block block, ItemStack itemStack, float xp) {

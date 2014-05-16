@@ -8,11 +8,14 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import info.ppservers.ac.blocks.BlockHandler;
 import info.ppservers.ac.client.interfaces.GuiHandler;
 import info.ppservers.ac.config.ConfigHandler;
+import info.ppservers.ac.items.CraftingContainerHandler;
 import info.ppservers.ac.items.ItemHandler;
 import info.ppservers.ac.proxies.CommonProxy;
+import info.ppservers.ac.world.TrolliumGen;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -36,6 +39,8 @@ public class AlchemicalCombination {
     public static GuiHandler guiHandler = new GuiHandler();
 
     public static String path;
+
+    TrolliumGen trolliumGen = new TrolliumGen();
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -64,6 +69,9 @@ public class AlchemicalCombination {
         ItemHandler.registerRecipes();
         BlockHandler.registerRecipes();
 
+        CraftingContainerHandler.init();
+
+        GameRegistry.registerWorldGenerator(trolliumGen,0);
     }
 
     @EventHandler

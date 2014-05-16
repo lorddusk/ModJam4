@@ -228,11 +228,11 @@ public class TileEntityAlchFurnace extends TileEntity implements ISidedInventory
             if (item instanceof ItemBlock && Block.getBlockFromItem(item) != Blocks.air) {
                 Block block = Block.getBlockFromItem(item);
                 if (block == BlockHandler.alchCoalBlock) {
-                    return 2000;
+                    return 1000;
                 }
             }
             if (item == ItemHandler.alchCoal) {
-                return 200;
+                return 100;
             }
         }
         return 0;
