@@ -48,8 +48,7 @@ public class Alchbread extends ItemFood {
 		public  ItemStack onEaten(ItemStack stack, World world,
 				EntityPlayer player) {
 			 
-			if(!world.isRemote){
-				
+			if(!world.isRemote){player.addPotionEffect(new PotionEffect(Potion.field_76405_D.id ,50,1));			
 				 
 				 onFoodEaten(stack, world, player);
 			 }

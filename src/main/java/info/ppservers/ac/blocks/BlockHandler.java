@@ -9,6 +9,7 @@ import info.ppservers.ac.blocks.alchfurnace.TileEntityAlchFurnace;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
 
 /**
  * Created by Tim on 5/15/2014.
@@ -37,6 +38,7 @@ public abstract class BlockHandler {
         elementalLog = new ElementalLog().setCreativeTab(AlchemicalCombination.ACTab);
         elementalLeaves = new ElementalLeaves().setCreativeTab(AlchemicalCombination.ACTab);
         elementalPlanks = new ElementalPlanks().setCreativeTab(AlchemicalCombination.ACTab);
+        
     }
 
     public static void registerBlocks() {

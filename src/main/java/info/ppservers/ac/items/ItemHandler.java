@@ -32,6 +32,7 @@ public abstract class ItemHandler {
         GameRegistry.registerItem(dullGem,"Dull Gem");
 
         GameRegistry.registerItem(AlchApple, Info.ALCHAPPLE_NAME);
+        GameRegistry.registerItem(Alchbread, "Alchemical Choal");
     }
 
     public static void registerRecipes(){

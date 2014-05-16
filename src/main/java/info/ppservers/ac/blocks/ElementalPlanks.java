@@ -14,6 +14,6 @@ public class ElementalPlanks extends Block{
 	}
 	
 	public void registerBlockIcons(IIconRegister p_149651_1_) {
-		this.blockIcon = p_149651_1_.registerIcon("ac:ElementalPlanks");
+		this.blockIcon = p_149651_1_.registerIcon("alchcom:ElementalPlanks");
 	}	
 }

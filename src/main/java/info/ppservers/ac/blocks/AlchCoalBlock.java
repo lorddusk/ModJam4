@@ -16,6 +16,6 @@ public class AlchCoalBlock extends Block {
     }
 
     public void registerBlockIcons(IIconRegister register){
-        this.blockIcon = register.registerIcon("alchCoalBlock");
+        this.blockIcon = register.registerIcon("alchcom:alchCoalBlock");
     }
 }

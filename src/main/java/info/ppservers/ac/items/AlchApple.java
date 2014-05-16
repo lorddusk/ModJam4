@@ -18,12 +18,12 @@ public class AlchApple extends ItemFood{
 	private Object isWolfsFavoriteMeat;
 	private Object saturationModifier;
 	
-
+	
 	public AlchApple(int healamount, float f, boolean Wolfmeat) {
 		super(healamount, Wolfmeat);
-		this.setCreativeTab(AlchemicalCombination.ACTab);
-		this.setMaxStackSize(16);
 		
+		this.setCreativeTab(AlchemicalCombination.ACTab );
+		this.setMaxStackSize(16);
 		this.setUnlocalizedName("Alchapple");
 		this.setMaxDamage(3);
 		 this.healAmount = healamount;
