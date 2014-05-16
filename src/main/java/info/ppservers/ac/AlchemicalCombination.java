@@ -11,6 +11,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import info.ppservers.ac.blocks.BlockHandler;
 import info.ppservers.ac.client.interfaces.GuiHandler;
 import info.ppservers.ac.config.ConfigHandler;
+import info.ppservers.ac.items.CraftingContainerHandler;
 import info.ppservers.ac.items.ItemHandler;
 import info.ppservers.ac.proxies.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
@@ -63,6 +64,8 @@ public class AlchemicalCombination {
 
         ItemHandler.registerRecipes();
         BlockHandler.registerRecipes();
+
+        CraftingContainerHandler.init();
 
     }
 

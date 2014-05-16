@@ -7,16 +7,18 @@ public abstract class Info {
 
     public static final String FURNACE_KEY = "tileEntityAlchFurnace";
     public static final String FURNACE_UNLOCALIZED_NAME = "alchFurnace";
-    public static final String FURNACE_NAME = "Alchemical Furnace";
+    public static final String FURNACE_NAME = "AlchemicalFurnace";
     public static final String FURNACE_ICON = "alchFurnace";
 
-    public static final String ALCHCOAL_NAME = "Alchemical Coal Block";
+    public static final String ALCHCOAL_NAME = "AlchemicalCoalBlock";
 
-    public static final String ALCHSTONE_NAME = "Alchemical Stone";
+    public static final String ALCHSTONE_NAME = "AlchemicalStone";
 
     public static final String ELEMENTALLOG_NAME = "ElementalLog";
     public static final String ELEMENTALLEAVES_NAME = "ElementalLeaves";
     public static final String ELEMENTALPLANKS_NAME = "ElementalPlanks";
+
+    public static final String TROLLIUM_ORE_NAME = "TrolliumOre";
 
     private Info() {
     }

@@ -6,9 +6,11 @@ import info.ppservers.ac.AlchemicalCombination;
 import info.ppservers.ac.blocks.alchfurnace.AlchFurnace;
 import info.ppservers.ac.blocks.alchfurnace.RenderAlchFurnace;
 import info.ppservers.ac.blocks.alchfurnace.TileEntityAlchFurnace;
+import info.ppservers.ac.items.ItemHandler;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import sun.jdbc.odbc.ee.ObjectPool;
 
 /**
  * Created by Tim on 5/15/2014.
@@ -26,6 +28,8 @@ public abstract class BlockHandler {
     public static Block elementalLeaves;
     public static Block elementalPlanks;
 
+    public static Block trolliumOre;
+
     public static void init() {
         furnace = new AlchFurnace(false).setBlockName("alchFurnace").setCreativeTab(AlchemicalCombination.ACTab);
         furnaceBurning = new AlchFurnace(true).setBlockName("alchFurnaceBurning").setLightLevel(0.875F);
@@ -37,6 +41,8 @@ public abstract class BlockHandler {
         elementalLog = new ElementalLog().setCreativeTab(AlchemicalCombination.ACTab);
         elementalLeaves = new ElementalLeaves().setCreativeTab(AlchemicalCombination.ACTab);
         elementalPlanks = new ElementalPlanks().setCreativeTab(AlchemicalCombination.ACTab);
+
+        trolliumOre = new TrolliumOre().setBlockName("trolliumOre").setCreativeTab(AlchemicalCombination.ACTab);
     }
 
     public static void registerBlocks() {
@@ -50,6 +56,8 @@ public abstract class BlockHandler {
         GameRegistry.registerBlock(elementalLog, Info.ELEMENTALLOG_NAME);
         GameRegistry.registerBlock(elementalLeaves, Info.ELEMENTALLEAVES_NAME);
         GameRegistry.registerBlock(elementalPlanks, Info.ELEMENTALPLANKS_NAME);
+
+        GameRegistry.registerBlock(trolliumOre, Info.TROLLIUM_ORE_NAME);
     }
 
     public static void registerTileEntities() {
@@ -61,7 +69,14 @@ public abstract class BlockHandler {
     }
 
     public static void registerRecipes() {
-        GameRegistry.addShapedRecipe(new ItemStack(BlockHandler.furnace), "eee", "efe", "eee", 'e', BlockHandler.elementalLog, 'f', Blocks.furnace);
+        GameRegistry.addShapelessRecipe(new ItemStack(BlockHandler.elementalPlanks, 4), new Object[]{
+                new ItemStack(BlockHandler.elementalLog)
+        });
+        GameRegistry.addShapedRecipe(new ItemStack(BlockHandler.alchCoalBlock), "CCC","CCC","CCC", 'C', ItemHandler.alchCoal);
+
+        GameRegistry.addShapedRecipe(new ItemStack(BlockHandler.furnace), "EEE", "EFE", "EEE", 'E', BlockHandler.elementalLog, 'F', Blocks.furnace);
+
+        GameRegistry.addSmelting(new ItemStack(BlockHandler.elementalLog), new ItemStack(ItemHandler.alchCoal), 0.1F);
     }
 
     private BlockHandler() {

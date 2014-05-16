@@ -22,6 +22,7 @@ public class AlchApple extends ItemFood{
 	public AlchApple(int healamount, float f, boolean Wolfmeat) {
 		super(healamount, Wolfmeat);
 		this.setCreativeTab(AlchemicalCombination.ACTab);
+        this.setCreativeTab(CreativeTabs.tabFood);
 		this.setMaxStackSize(16);
 		
 		this.setUnlocalizedName("Alchapple");

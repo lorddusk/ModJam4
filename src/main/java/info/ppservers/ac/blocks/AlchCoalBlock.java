@@ -12,7 +12,7 @@ public class AlchCoalBlock extends Block {
     protected AlchCoalBlock() {
         super(Material.iron);
         this.setStepSound(soundTypeStone);
-        this.setBlockName("Block of Alchemical Coal");
+        this.setBlockName("alchCoalBlock");
     }
 
     public void registerBlockIcons(IIconRegister register){

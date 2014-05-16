@@ -19,6 +19,12 @@ public class Info {
 
     public static final String ALCHAPPLE_NAME = "Alchemists Apple";
 
+    public static final String ELEMENTAL_STICK_NAME = "Elemental Stick";
+
+    public static final String TROLLIUM_INGOT_NAME = "TrolliumIngot";
+
+    public static final String ALCHCHISEL_NAME = "AlchemicalChisel";
+
     private Info() {
     }
 }
