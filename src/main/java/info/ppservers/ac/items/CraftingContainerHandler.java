@@ -18,6 +18,6 @@ public class CraftingContainerHandler {
     }
 
     public static void registerChiselRecipes(ItemStack itemStack) {
-        CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemHandler.dullGem), itemStack, BlockHandler.alchStone));
+        CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemHandler.alchGem,1,0), itemStack, BlockHandler.alchStone));
     }
 }

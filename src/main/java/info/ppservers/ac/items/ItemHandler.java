@@ -6,9 +6,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
-import net.minecraftforge.oredict.OreDictionary;
-import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 /**
  * Created by Tim on 5/15/2014.
@@ -16,7 +13,7 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
 public abstract class ItemHandler {
 
     public static Item alchCoal;
-    public static Item dullGem;
+    public static Item alchGem;
 
     public static Item AlchApple;
     public static ItemFood Alchbread;
@@ -33,7 +30,7 @@ public abstract class ItemHandler {
 
     public static void init() {
         alchCoal = new AlchCoal().setUnlocalizedName(Info.COAL_UNLOCALIZED_NAME);
-        dullGem = new DullGem().setUnlocalizedName(Info.DULL_UNLOCALIZED_NAME);
+        alchGem = new AlchGem();
 
         AlchApple = new AlchApple(6, 0.6f, false);
         Alchbread = new Alchbread(1, 0.6f, false);
@@ -48,7 +45,7 @@ public abstract class ItemHandler {
 
     public static void registerItems() {
         GameRegistry.registerItem(alchCoal, "Alchemical Coal");
-        GameRegistry.registerItem(dullGem, "Dull Gem");
+        GameRegistry.registerItem(alchGem, "Gems");
 
         GameRegistry.registerItem(AlchApple, Info.ALCHAPPLE_NAME);
 

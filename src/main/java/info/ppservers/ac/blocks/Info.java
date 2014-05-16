@@ -10,6 +10,11 @@ public abstract class Info {
     public static final String FURNACE_NAME = "AlchemicalFurnace";
     public static final String FURNACE_ICON = "alchFurnace";
 
+    public static final String INFUSER_KEY = "tileEntityAlchInfuser";
+    public static final String INFUSER_UNLOCALIZED_NAME = "alchInfuser";
+    public static final String INFUSER_NAME = "AlchemicalInfuser";
+    public static final String INFUSER_ICON = "alchInfuser";
+
     public static final String ALCHCOAL_NAME = "AlchemicalCoalBlock";
 
     public static final String ALCHSTONE_NAME = "AlchemicalStone";
