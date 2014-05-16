@@ -25,6 +25,7 @@ public abstract class BlockHandler {
     public static Block elementalLog;
     public static Block elementalLeaves;
     public static Block elementalPlanks;
+    public static Block elementalSapling;
 
     public static void init() {
         furnace = new AlchFurnace(false).setBlockName("alchFurnace").setCreativeTab(AlchemicalCombination.ACTab);
@@ -37,6 +38,7 @@ public abstract class BlockHandler {
         elementalLog = new ElementalLog().setCreativeTab(AlchemicalCombination.ACTab);
         elementalLeaves = new ElementalLeaves().setCreativeTab(AlchemicalCombination.ACTab);
         elementalPlanks = new ElementalPlanks().setCreativeTab(AlchemicalCombination.ACTab);
+        elementalSapling = new ElementalSapling().setCreativeTab(AlchemicalCombination.ACTab);
     }
 
     public static void registerBlocks() {
@@ -50,6 +52,7 @@ public abstract class BlockHandler {
         GameRegistry.registerBlock(elementalLog, Info.ELEMENTALLOG_NAME);
         GameRegistry.registerBlock(elementalLeaves, Info.ELEMENTALLEAVES_NAME);
         GameRegistry.registerBlock(elementalPlanks, Info.ELEMENTALPLANKS_NAME);
+        GameRegistry.registerBlock(elementalSapling, Info.ELEMENTALSAPLING_NAME);
     }
 
     public static void registerTileEntities() {

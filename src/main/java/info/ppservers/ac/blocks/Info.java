@@ -17,6 +17,7 @@ public abstract class Info {
     public static final String ELEMENTALLOG_NAME = "ElementalLog";
     public static final String ELEMENTALLEAVES_NAME = "ElementalLeaves";
     public static final String ELEMENTALPLANKS_NAME = "ElementalPlanks";
+    public static final String ELEMENTALSAPLING_NAME = "ElementalSapling";
 
     private Info() {
     }
