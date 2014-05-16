@@ -48,6 +48,7 @@ public abstract class ItemHandler {
         GameRegistry.registerItem(alchGem, "Gems");
 
         GameRegistry.registerItem(AlchApple, Info.ALCHAPPLE_NAME);
+        GameRegistry.registerItem(Alchbread, "Alchemical Bread");
 
         GameRegistry.registerItem(trolliumIngot, Info.TROLLIUM_INGOT_NAME);
 

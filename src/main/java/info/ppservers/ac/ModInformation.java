@@ -11,4 +11,5 @@ public class ModInformation {
     public static final String CONFIG_LOC_NAME = "AlchCom";
 
     public static final String SOUND_LOC = "AlchCom";
+    public static final String BLOCK_TEXTURE_LOC = "alchcom" + ":" ; 
 }
