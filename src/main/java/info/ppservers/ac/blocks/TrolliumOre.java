@@ -9,6 +9,9 @@ import net.minecraft.block.material.Material;
 public class TrolliumOre extends Block{
     protected TrolliumOre() {
         super(Material.rock);
+        this.setHardness(3.0F);
+        this.setResistance(5.0F);
+        this.setHarvestLevel("pickaxe",2);
     }
 
 }
