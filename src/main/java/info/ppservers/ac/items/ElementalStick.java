@@ -19,14 +19,15 @@ public class ElementalStick extends Item {
     public ElementalStick(){
         this.setCreativeTab(AlchemicalCombination.ACTab);
         this.setMaxStackSize(64);
+        this.setUnlocalizedName("elementalStick");
     }
 
-    public String getUnlocalizedName(ItemStack itemStack){
-        return "elementalStick";
+    public String getUnlocalizedName(ItemStack itemStack) {
+        return super.getUnlocalizedName();
     }
 
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister register){
-        eStick = register.registerIcon("alchcom:"+Info.ELEMENTAL_STICK_NAME);
+        eStick = register.registerIcon("alchcom:"+Info.ELEMENTAL_STICK_ICON);
     }
 }

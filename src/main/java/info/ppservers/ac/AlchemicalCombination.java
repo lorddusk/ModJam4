@@ -59,12 +59,9 @@ public class AlchemicalCombination {
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-
-        System.out.println("Register GuiHandler");
         instance = this;
         NetworkRegistry.INSTANCE.registerGuiHandler(this, guiHandler);
         MinecraftForge.EVENT_BUS.register(this);
-        System.out.println("Done");
 
         BlockHandler.registerRenders();
 

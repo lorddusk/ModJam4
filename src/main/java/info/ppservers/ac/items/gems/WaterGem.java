@@ -18,18 +18,19 @@ public class WaterGem extends Item {
         this.setCreativeTab(AlchemicalCombination.ACTab);
         this.setMaxStackSize(1);
         this.setMaxDamage(3);
+        this.setUnlocalizedName("waterGem");
     }
 
     @SideOnly(Side.CLIENT)
     private IIcon waterGem;
 
     public String getUnlocalizedName(ItemStack itemStack) {
-        return "waterGem";
+        return super.getUnlocalizedName();
     }
 
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister register){
-        waterGem = register.registerIcon("alchcom:"+Info.WATERGEM_NAME);
+        waterGem = register.registerIcon("alchcom:"+Info.WATERGEM_ICON);
     }
 
     @Override

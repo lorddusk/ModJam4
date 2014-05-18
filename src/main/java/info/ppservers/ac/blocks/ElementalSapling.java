@@ -6,7 +6,9 @@ import info.ppservers.ac.AlchemicalCombination;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
@@ -15,6 +17,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import java.util.List;
 import java.util.Random;
 
 public class ElementalSapling extends BlockSapling {
@@ -25,6 +28,11 @@ public class ElementalSapling extends BlockSapling {
         this.setHardness(0.0F);
         this.setStepSound(Block.soundTypeGrass);
         this.setCreativeTab(AlchemicalCombination.ACTab);
+    }
+
+    @Override
+    public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_){
+        p_149666_3_.add(new ItemStack(p_149666_1_, 1, 0));
     }
 
     @Override
@@ -54,8 +62,8 @@ public class ElementalSapling extends BlockSapling {
         return false;
     }
 
-    public String getUnlocalizedName(ItemStack itemStack){
-        return "elementalSapling";
+    public String getUnlocalizedName(ItemStack itemStack) {
+        return super.getUnlocalizedName();
     }
 
     public boolean canThisPlantGrowOnThisBlock(Block id) {

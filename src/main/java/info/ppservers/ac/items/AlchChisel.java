@@ -20,15 +20,16 @@ public class AlchChisel extends Item {
         this.setCreativeTab(AlchemicalCombination.ACTab);
         this.setMaxStackSize(1);
         this.setMaxDamage(7);
+        this.setUnlocalizedName("alchChisel");
     }
 
     public String getUnlocalizedName(ItemStack itemStack) {
-        return "alchChisel";
+        return super.getUnlocalizedName();
     }
 
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister register) {
-        alchChiselIcon = register.registerIcon("alchcom:" + Info.ALCHCHISEL_NAME);
+        alchChiselIcon = register.registerIcon("alchcom:" + Info.ALCHCHISEL_ICON);
     }
 
     @Override

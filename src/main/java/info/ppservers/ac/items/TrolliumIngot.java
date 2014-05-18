@@ -19,14 +19,15 @@ public class TrolliumIngot extends Item {
     public TrolliumIngot(){
         this.setMaxStackSize(64);
         this.setCreativeTab(AlchemicalCombination.ACTab);
+        this.setUnlocalizedName("trolliumIngot");
     }
 
-    public String getUnlocalizedName(ItemStack itemStack){
-        return "trolliumIngot";
+    public String getUnlocalizedName(ItemStack itemStack) {
+        return super.getUnlocalizedName();
     }
 
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister register){
-        trollIngot = register.registerIcon("alchcom:"+Info.TROLLIUM_INGOT_NAME);
+        trollIngot = register.registerIcon("alchcom:"+Info.TROLLIUM_INGOT_ICON);
     }
 }

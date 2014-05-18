@@ -33,10 +33,11 @@ public class Alchbread extends ItemFood {
         this.healAmount = healamnt_;
         this.isWolfsFavoriteMeat = wolfmeat_;
         this.saturationModifier = saturatamnt;
+        this.setUnlocalizedName("alchBread");
     }
 
     public String getUnlocalizedName(ItemStack itemStack) {
-        return "alchBread";
+        return super.getUnlocalizedName();
     }
 
     @SideOnly(Side.CLIENT)
@@ -45,7 +46,7 @@ public class Alchbread extends ItemFood {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister register){
-        alchBread = register.registerIcon("alchcom:"+Info.ALCHBREAD_NAME);
+        alchBread = register.registerIcon("alchcom:"+Info.ALCHBREAD_ICON);
     }
 
     public EnumRarity getRarity(ItemStack stack) {

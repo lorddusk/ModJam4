@@ -22,8 +22,6 @@ public class AlchApple extends ItemFood {
     private Object isWolfsFavoriteMeat;
     private Object saturationModifier;
 
-    @SideOnly(Side.CLIENT)
-    private IIcon alchApple;
 
     public AlchApple(int healamount, float f, boolean Wolfmeat) {
         super(healamount, Wolfmeat);
@@ -33,24 +31,28 @@ public class AlchApple extends ItemFood {
         this.healAmount = healamount;
         this.isWolfsFavoriteMeat = Wolfmeat;
         this.saturationModifier = f;
+        this.setUnlocalizedName("alchApple");
     }
 
     public EnumRarity getRarity(ItemStack stack) {
         return EnumRarity.epic;
-
     }
 
-    public String getUnlocalizedName(ItemStack itemStack) {
-        return "alchApple";
-    }
+    @SideOnly(Side.CLIENT)
+    private IIcon appleIcon;
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister register){
-        alchApple = register.registerIcon("alchcom:"+Info.ALCHAPPLE_NAME);
+    public void registerIcons(IIconRegister register) {
+        appleIcon = register.registerIcon(Info.TEXTURE_LOCATION+":"+Info.ALCHAPPLE_ICON);
     }
 
-    public boolean hasEffect(ItemStack par1ItemStack) {
+    public String getUnlocalizedName(ItemStack itemStack) {
+        return super.getUnlocalizedName();
+    }
+
+    @Override
+    public boolean hasEffect(ItemStack par1ItemStack, int pass) {
         return true;
     }
 

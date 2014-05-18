@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 /**
  * Created by Tim on 5/15/2014.
  */
-public abstract class ItemHandler {
+public class ItemHandler {
 
     public static Item alchCoal;
 
@@ -38,37 +38,37 @@ public abstract class ItemHandler {
 
         //Gems
         alchGem = new AlchGem();
-        waterGem = new WaterGem().setUnlocalizedName(Info.WATERGEM_NAME);
+        waterGem = new WaterGem();
         waterGem.setContainerItem(waterGem);
 
         //Food
         AlchApple = new AlchApple(6, 0.6f, false);
         Alchbread = new Alchbread(1, 0.6f, false);
 
-        trolliumIngot = new TrolliumIngot().setUnlocalizedName(Info.TROLLIUM_INGOT_NAME);
+        trolliumIngot = new TrolliumIngot();
 
-        elementalStick = new ElementalStick().setUnlocalizedName(Info.ELEMENTAL_STICK_NAME);
+        elementalStick = new ElementalStick();
 
-        alchChisel = new AlchChisel().setUnlocalizedName(Info.ALCHAPPLE_NAME);
+        alchChisel = new AlchChisel();
         alchChisel.setContainerItem(alchChisel);
     }
 
     public static void registerItems() {
-        GameRegistry.registerItem(alchCoal, Info.COAL_UNLOCALIZED_NAME);
+        GameRegistry.registerItem(alchCoal, "Alchemical Coal");
 
         //Gems
-        GameRegistry.registerItem(alchGem, Info.GEM_KEY);
-        GameRegistry.registerItem(waterGem, Info.WATERGEM_NAME);
+        GameRegistry.registerItem(alchGem, "Gems");
+        GameRegistry.registerItem(waterGem, "Water Gem");
 
         //Food
-        GameRegistry.registerItem(AlchApple, Info.ALCHAPPLE_NAME);
-        GameRegistry.registerItem(Alchbread, Info.ALCHBREAD_NAME);
+        GameRegistry.registerItem(AlchApple, "Alchemical Apple");
+        GameRegistry.registerItem(Alchbread, "Alchemical Bread");
 
-        GameRegistry.registerItem(trolliumIngot, Info.TROLLIUM_INGOT_NAME);
+        GameRegistry.registerItem(trolliumIngot, "Trollium Ingot");
 
-        GameRegistry.registerItem(elementalStick, Info.ELEMENTAL_STICK_NAME);
+        GameRegistry.registerItem(elementalStick, "Elemental Stick");
 
-        GameRegistry.registerItem(alchChisel, Info.ALCHCHISEL_NAME);
+        GameRegistry.registerItem(alchChisel, "Alchemical Chisel");
     }
 
     public static void registerRecipes() {
@@ -79,9 +79,5 @@ public abstract class ItemHandler {
 
         //Alchemical Chisel
         GameRegistry.addShapedRecipe(new ItemStack(ItemHandler.alchChisel), "  E", "IE ", "TT ", 'E', ItemHandler.elementalStick, 'I', Items.iron_ingot, 'T', ItemHandler.trolliumIngot);
-    }
-
-    private ItemHandler() {
-
     }
 }

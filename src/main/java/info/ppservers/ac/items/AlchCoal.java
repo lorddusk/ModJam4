@@ -22,8 +22,8 @@ public class AlchCoal extends Item {
         this.setUnlocalizedName("alchCoal");
     }
 
-    public String getUnlocalizedName(ItemStack itemStack){
-        return "alchCoal";
+    public String getUnlocalizedName(ItemStack itemStack) {
+        return super.getUnlocalizedName();
     }
 
     @Override

@@ -87,9 +87,9 @@ public class AlchFurnace extends BlockContainer {
 
     @Override
     public void registerBlockIcons(IIconRegister par1) {
-        this.blockIcon = par1.registerIcon("alch_furnace_side");
-        this.furnaceFront = par1.registerIcon(this.isActive ? "alch_furnace_on" : "alch_furnace_off");
-        this.furnaceTop = par1.registerIcon("alch_furnace_top");
+        this.blockIcon = par1.registerIcon("alchcom:alch_furnace_side");
+        this.furnaceFront = par1.registerIcon(this.isActive ? "alchcom:alch_furnace_on" : "alchcom:alch_furnace_off");
+        this.furnaceTop = par1.registerIcon("alchcom:alch_furnace_top");
     }
 
     @Override
