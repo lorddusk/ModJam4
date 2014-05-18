@@ -27,6 +27,6 @@ public class ElementalStick extends Item {
 
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister register){
-        eStick = register.registerIcon(Info.TEXTURE_LOCATION+":"+Info.ELEMENTAL_STICK_NAME);
+        eStick = register.registerIcon("alchcom:"+Info.ELEMENTAL_STICK_NAME);
     }
 }

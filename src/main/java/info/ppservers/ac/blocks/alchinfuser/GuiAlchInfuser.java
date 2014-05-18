@@ -16,7 +16,7 @@ import org.lwjgl.opengl.GL11;
  */
 @SideOnly(Side.CLIENT)
 public class GuiAlchInfuser extends GuiContainer {
-    private static final ResourceLocation TEXTURE = ResourceHelper.getResource("furnace");
+    private static final ResourceLocation TEXTURE = ResourceHelper.getResource("infuser");
     private TileEntityAlchInfuser alchInfuser;
 
     public GuiAlchInfuser(InventoryPlayer inventoryPlayer, TileEntityAlchInfuser tileEntityAlchInfuser) {

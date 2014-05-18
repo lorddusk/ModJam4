@@ -29,12 +29,13 @@ public class AlchGem extends Item {
     @SideOnly(Side.CLIENT)
     private IIcon[] icons;
 
+    @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister register) {
         icons = new IIcon[Info.GEM_ICONS.length];
 
         for (int i = 0; i < icons.length; i++) {
-            register.registerIcon(Info.TEXTURE_LOCATION + ":" + Info.GEM_ICONS[i]);
+            register.registerIcon("alchcom:" + Info.GEM_ICONS[i]);
         }
     }
 

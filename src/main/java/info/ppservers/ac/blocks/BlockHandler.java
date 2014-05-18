@@ -11,6 +11,9 @@ import info.ppservers.ac.blocks.alchinfuser.RenderAlchInfuser;
 import info.ppservers.ac.blocks.alchinfuser.TileEntityAlchInfuser;
 import info.ppservers.ac.items.ItemHandler;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockLeaves;
+import net.minecraft.block.BlockLog;
+import net.minecraft.block.BlockSapling;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 
@@ -27,8 +30,9 @@ public abstract class BlockHandler {
     public static Block alchStone;
 
     public static Block elementalLog;
-    public static Block elementalLeaves;
+    public static ElementalLeaves elementalLeaves;
     public static Block elementalPlanks;
+    public static ElementalSapling elementalSapling;
 
     public static Block trolliumOre;
 
@@ -42,13 +46,14 @@ public abstract class BlockHandler {
         infuser = new AlchInfuser(false).setBlockName("alchInfuser").setCreativeTab(AlchemicalCombination.ACTab);
         infuserBurning = new AlchInfuser(true).setBlockName("alchInfuserBurning").setLightLevel(0.875F);
 
-        alchCoalBlock = new AlchCoalBlock().setLightLevel(0.875F).setCreativeTab(AlchemicalCombination.ACTab);
+        alchCoalBlock = new AlchCoalBlock().setBlockName("alchCoalBlock").setLightLevel(0.875F).setCreativeTab(AlchemicalCombination.ACTab);
 
         alchStone = new AlchStone().setBlockName("alchStone").setCreativeTab(AlchemicalCombination.ACTab);
 
-        elementalLog = new ElementalLog().setCreativeTab(AlchemicalCombination.ACTab);
-        elementalLeaves = new ElementalLeaves().setCreativeTab(AlchemicalCombination.ACTab);
-        elementalPlanks = new ElementalPlanks().setCreativeTab(AlchemicalCombination.ACTab);
+        elementalLog = new ElementalLog().setBlockName("elementalLog").setCreativeTab(AlchemicalCombination.ACTab);
+        elementalLeaves = (ElementalLeaves) new ElementalLeaves().setBlockName("elementalLeaves").setCreativeTab(AlchemicalCombination.ACTab);
+        elementalPlanks = new ElementalPlanks().setBlockName("elementalPlank").setCreativeTab(AlchemicalCombination.ACTab);
+        elementalSapling = (ElementalSapling) new ElementalSapling().setBlockName("elementalSapling");
 
         trolliumOre = new TrolliumOre().setBlockName("trolliumOre").setCreativeTab(AlchemicalCombination.ACTab);
     }
@@ -67,6 +72,7 @@ public abstract class BlockHandler {
         GameRegistry.registerBlock(elementalLog, Info.ELEMENTALLOG_NAME);
         GameRegistry.registerBlock(elementalLeaves, Info.ELEMENTALLEAVES_NAME);
         GameRegistry.registerBlock(elementalPlanks, Info.ELEMENTALPLANKS_NAME);
+        GameRegistry.registerBlock(elementalSapling, "ElementalSapling");
 
         GameRegistry.registerBlock(trolliumOre, Info.TROLLIUM_ORE_NAME);
     }

@@ -1,8 +1,8 @@
 package info.ppservers.ac;
 
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -15,6 +15,7 @@ import info.ppservers.ac.config.ConfigHandler;
 import info.ppservers.ac.items.CraftingContainerHandler;
 import info.ppservers.ac.items.ItemHandler;
 import info.ppservers.ac.proxies.CommonProxy;
+import info.ppservers.ac.world.BaseTreeWorldgen;
 import info.ppservers.ac.world.TrolliumGen;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
@@ -40,7 +41,8 @@ public class AlchemicalCombination {
 
     public static String path;
 
-    TrolliumGen trolliumGen = new TrolliumGen();
+    public static TrolliumGen trolliumGen;
+    public static BaseTreeWorldgen treeGen;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -56,7 +58,7 @@ public class AlchemicalCombination {
     }
 
     @EventHandler
-    public void init(FMLInitializationEvent event){
+    public void init(FMLInitializationEvent event) {
 
         System.out.println("Register GuiHandler");
         instance = this;
@@ -71,7 +73,8 @@ public class AlchemicalCombination {
 
         CraftingContainerHandler.init();
 
-        GameRegistry.registerWorldGenerator(trolliumGen,0);
+        GameRegistry.registerWorldGenerator(trolliumGen = new TrolliumGen(), 0);
+        GameRegistry.registerWorldGenerator(treeGen = new BaseTreeWorldgen(), 0);
     }
 
     @EventHandler

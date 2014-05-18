@@ -85,7 +85,7 @@ public class AlchFurnace extends BlockContainer {
         return par1 == 1 ? this.furnaceTop : (par1 == 0 ? this.furnaceTop : (par1 != par2 ? this.blockIcon : this.furnaceFront));
     }
 
-    @SideOnly(Side.CLIENT)
+    @Override
     public void registerBlockIcons(IIconRegister par1) {
         this.blockIcon = par1.registerIcon("alch_furnace_side");
         this.furnaceFront = par1.registerIcon(this.isActive ? "alch_furnace_on" : "alch_furnace_off");

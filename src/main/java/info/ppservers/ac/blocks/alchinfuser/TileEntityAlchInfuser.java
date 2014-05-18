@@ -195,7 +195,7 @@ public class TileEntityAlchInfuser extends TileEntity implements ISidedInventory
         if (this.furnaceStack[0] == null) {
             return false;
         } else {
-            ItemStack itemStack = AlchInfuserRecipes.getInstance().getResult(this.furnaceStack[INPUT_INVENTORY_INDEX], this.furnaceStack[GEM_INVENTORY_INDEX]);
+            ItemStack itemStack = InfuserRecipes.getInstance().getResult(this.furnaceStack[INPUT_INVENTORY_INDEX], this.furnaceStack[GEM_INVENTORY_INDEX]);
             if (itemStack == null) {
                 return false;
             }
@@ -214,7 +214,7 @@ public class TileEntityAlchInfuser extends TileEntity implements ISidedInventory
 
     public void infuseItem() {
         if (this.canInfuse()) {
-            AlchInfuserRecipe itemStack = AlchInfuserRecipes.getInstance().getRecipe(furnaceStack[INPUT_INVENTORY_INDEX], furnaceStack[GEM_INVENTORY_INDEX]);
+            InfuserRecipeHandler itemStack = InfuserRecipes.getInstance().getRecipe(furnaceStack[INPUT_INVENTORY_INDEX], furnaceStack[GEM_INVENTORY_INDEX]);
             if (this.furnaceStack[OUTPUT_INVENTORY_INDEX] == null) {
                 this.furnaceStack[OUTPUT_INVENTORY_INDEX] = itemStack.getRecipeOutput().copy();
             } else if (this.furnaceStack[OUTPUT_INVENTORY_INDEX].isItemEqual(itemStack.getRecipeOutput())) {

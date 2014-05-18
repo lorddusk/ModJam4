@@ -27,6 +27,6 @@ public class TrolliumIngot extends Item {
 
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister register){
-        trollIngot = register.registerIcon(Info.TEXTURE_LOCATION+":"+Info.TROLLIUM_INGOT_NAME);
+        trollIngot = register.registerIcon("alchcom:"+Info.TROLLIUM_INGOT_NAME);
     }
 }

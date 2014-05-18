@@ -19,14 +19,16 @@ public class AlchCoal extends Item {
     public AlchCoal() {
         this.setMaxDamage(0);
         this.setCreativeTab(AlchemicalCombination.ACTab);
+        this.setUnlocalizedName("alchCoal");
     }
 
     public String getUnlocalizedName(ItemStack itemStack){
         return "alchCoal";
     }
 
+    @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister register){
-        coalIcon = register.registerIcon(Info.TEXTURE_LOCATION +":"+ Info.COAL_ICON);
+        coalIcon = register.registerIcon("alchcom:"+ Info.COAL_ICON);
     }
 }

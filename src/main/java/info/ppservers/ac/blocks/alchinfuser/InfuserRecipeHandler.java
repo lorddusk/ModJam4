@@ -11,19 +11,19 @@ import java.util.*;
 /**
  * Created by Tim on 5/15/2014.
  */
-public class AlchInfuserRecipe {
+public class InfuserRecipeHandler {
     private ItemStack recipeOutput;
     private WrappedStack inputStack;
     private ItemStack gemStack;
 
-    public AlchInfuserRecipe(ItemStack recipeOutput, ItemStack inputStack, ItemStack gemStack) {
+    public InfuserRecipeHandler(ItemStack recipeOutput, ItemStack inputStack, ItemStack gemStack) {
         this.recipeOutput = recipeOutput.copy();
         this.inputStack = new WrappedStack(inputStack);
         this.gemStack = gemStack.copy();
     }
 
-    public boolean matches(AlchInfuserRecipe alchInfuserRecipes) {
-        return compareItemStacks(this.recipeOutput, alchInfuserRecipes.recipeOutput) && matches(alchInfuserRecipes.inputStack, alchInfuserRecipes.gemStack);
+    public boolean matches(InfuserRecipeHandler infuserRecipesHandler) {
+        return compareItemStacks(this.recipeOutput, infuserRecipesHandler.recipeOutput) && matches(infuserRecipesHandler.inputStack, infuserRecipesHandler.gemStack);
     }
 
     public boolean matches(ItemStack inputStack, ItemStack gemStack) {
@@ -56,8 +56,8 @@ public class AlchInfuserRecipe {
 
     @Override
     public boolean equals(Object object) {
-        if (object instanceof AlchInfuserRecipe) {
-            return matches((AlchInfuserRecipe) object);
+        if (object instanceof InfuserRecipeHandler) {
+            return matches((InfuserRecipeHandler) object);
         }
         return false;
     }
