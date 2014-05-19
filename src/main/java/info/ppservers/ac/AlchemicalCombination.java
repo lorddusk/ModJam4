@@ -10,10 +10,13 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import info.ppservers.ac.blocks.BlockHandler;
+import info.ppservers.ac.blocks.alchinfuser.InfuserRecipeHandler;
+import info.ppservers.ac.blocks.alchinfuser.InfuserRecipes;
 import info.ppservers.ac.client.interfaces.GuiHandler;
 import info.ppservers.ac.config.ConfigHandler;
 import info.ppservers.ac.items.CraftingContainerHandler;
 import info.ppservers.ac.items.ItemHandler;
+import info.ppservers.ac.liquid.FluidHandler;
 import info.ppservers.ac.proxies.CommonProxy;
 import info.ppservers.ac.world.BaseTreeWorldgen;
 import info.ppservers.ac.world.TrolliumGen;
@@ -55,6 +58,8 @@ public class AlchemicalCombination {
         BlockHandler.init();
         BlockHandler.registerBlocks();
         BlockHandler.registerTileEntities();
+
+        FluidHandler.init();
     }
 
     @EventHandler

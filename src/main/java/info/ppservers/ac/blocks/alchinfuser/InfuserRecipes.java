@@ -26,7 +26,6 @@ public class InfuserRecipes {
         }
         return alchInfuserRecipe;
     }
-
     private void init(){
         //tier 0 > tier 1
         alchInfuserRecipe.addRecipe(new ItemStack(ItemHandler.alchGem,1,1), new ItemStack(Items.redstone), new ItemStack(ItemHandler.alchGem,1,0));
@@ -40,14 +39,23 @@ public class InfuserRecipes {
         alchInfuserRecipe.addRecipe(new ItemStack(ItemHandler.waterGem,1,0), new ItemStack(Items.reeds),new ItemStack(ItemHandler.alchGem,1,1));
     }
 
+    /**
+     *
+     * @param recipeOutput output of the recipe.
+     * @param recipeInputStack regular item to infuse the gem with.
+     * @param recipeInputGem which gem does it need.
+     */
     public void addRecipe(ItemStack recipeOutput, ItemStack recipeInputStack, ItemStack recipeInputGem){
         addRecipe(new InfuserRecipeHandler(recipeOutput,recipeInputStack,recipeInputGem));
     }
 
+    /**
+     *
+     * @param recipe new Recipe
+     */
     public void addRecipe(InfuserRecipeHandler recipe){
         if(!infuserRecipes.contains(recipe)){
             infuserRecipes.add(recipe);
-            System.out.println(recipe.toString());
         }
         else
         {

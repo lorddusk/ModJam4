@@ -3,6 +3,7 @@ package info.ppservers.ac.items;
 import cpw.mods.fml.common.registry.GameRegistry;
 import info.ppservers.ac.blocks.BlockHandler;
 import info.ppservers.ac.items.gems.WaterGem;
+import mantle.blocks.BlockUtils;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
@@ -33,6 +34,8 @@ public class ItemHandler {
 
     public static Item alchChisel;
 
+    public static Item buckets;
+
     public static void init() {
         alchCoal = new AlchCoal();
 
@@ -51,6 +54,9 @@ public class ItemHandler {
 
         alchChisel = new AlchChisel();
         alchChisel.setContainerItem(alchChisel);
+
+        buckets = new FilledBucket(BlockUtils.getBlockFromItem(buckets));
+
     }
 
     public static void registerItems() {
@@ -69,6 +75,8 @@ public class ItemHandler {
         GameRegistry.registerItem(elementalStick, "Elemental Stick");
 
         GameRegistry.registerItem(alchChisel, "Alchemical Chisel");
+
+        GameRegistry.registerItem(buckets,"buckets");
     }
 
     public static void registerRecipes() {

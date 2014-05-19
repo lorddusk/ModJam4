@@ -26,6 +26,13 @@ public class AlchCoal extends Item {
         return super.getUnlocalizedName();
     }
 
+
+    @SideOnly(Side.CLIENT)
+    public IIcon getIconFromDamage(int par1)
+    {
+        return coalIcon;
+    }
+
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister register){

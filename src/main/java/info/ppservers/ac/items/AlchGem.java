@@ -35,8 +35,14 @@ public class AlchGem extends Item {
         icons = new IIcon[Info.GEM_ICONS.length];
 
         for (int i = 0; i < icons.length; i++) {
-            register.registerIcon("alchcom:" + Info.GEM_ICONS[i]);
+            icons[i] = register.registerIcon("alchcom:" + Info.GEM_ICONS[i]);
         }
+    }
+
+    @SideOnly(Side.CLIENT)
+    public IIcon getIconFromDamage(int par1) {
+        int j = MathHelper.clamp_int(par1, 0, Info.GEM_ICONS.length);
+        return this.icons[j];
     }
 
     public static final String[] names = Info.GEM_ICONS;
@@ -44,12 +50,6 @@ public class AlchGem extends Item {
     public String getUnlocalizedName(ItemStack itemStack) {
         int i = MathHelper.clamp_int(itemStack.getItemDamage(), 0, Info.GEM_ICONS.length);
         return super.getUnlocalizedName() + "." + names[i];
-    }
-
-    @SideOnly(Side.CLIENT)
-    public IIcon getIconFromDamage(int dmg) {
-        int j = MathHelper.clamp_int(dmg, 0, Info.GEM_ICONS.length);
-        return this.icons[j];
     }
 
     @SideOnly(Side.CLIENT)

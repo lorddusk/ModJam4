@@ -32,6 +32,12 @@ public class AlchChisel extends Item {
         alchChiselIcon = register.registerIcon("alchcom:" + Info.ALCHCHISEL_ICON);
     }
 
+    @SideOnly(Side.CLIENT)
+    public IIcon getIconFromDamage(int par1)
+    {
+        return alchChiselIcon;
+    }
+
     @Override
     public boolean doesContainerItemLeaveCraftingGrid(ItemStack itemStack) {
         return false;

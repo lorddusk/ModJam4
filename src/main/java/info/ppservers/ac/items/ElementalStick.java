@@ -17,6 +17,7 @@ public class ElementalStick extends Item {
     private IIcon eStick;
 
     public ElementalStick(){
+        super();
         this.setCreativeTab(AlchemicalCombination.ACTab);
         this.setMaxStackSize(64);
         this.setUnlocalizedName("elementalStick");
@@ -26,6 +27,13 @@ public class ElementalStick extends Item {
         return super.getUnlocalizedName();
     }
 
+    @SideOnly(Side.CLIENT)
+    public IIcon getIconFromDamage(int par1)
+    {
+        return eStick;
+    }
+
+    @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister register){
         eStick = register.registerIcon("alchcom:"+Info.ELEMENTAL_STICK_ICON);

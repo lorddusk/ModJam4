@@ -54,6 +54,13 @@ public class Alchbread extends ItemFood {
 
     }
 
+
+    @SideOnly(Side.CLIENT)
+    public IIcon getIconFromDamage(int par1)
+    {
+        return alchBread;
+    }
+
     public boolean hasEffect(ItemStack par1ItemStack) {
         return true;
     }

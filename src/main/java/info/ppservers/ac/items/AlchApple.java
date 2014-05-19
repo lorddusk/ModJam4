@@ -41,6 +41,12 @@ public class AlchApple extends ItemFood {
     @SideOnly(Side.CLIENT)
     private IIcon appleIcon;
 
+    @SideOnly(Side.CLIENT)
+    public IIcon getIconFromDamage(int par1)
+    {
+        return appleIcon;
+    }
+
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister register) {

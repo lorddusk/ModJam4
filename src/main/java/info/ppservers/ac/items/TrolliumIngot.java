@@ -30,4 +30,10 @@ public class TrolliumIngot extends Item {
     public void registerIcons(IIconRegister register){
         trollIngot = register.registerIcon("alchcom:"+Info.TROLLIUM_INGOT_ICON);
     }
+
+    @SideOnly(Side.CLIENT)
+    public IIcon getIconFromDamage(int par1)
+    {
+        return trollIngot;
+    }
 }

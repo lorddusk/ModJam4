@@ -1,5 +1,0 @@
-<root>
-    <item name='net.minecraft.block.BlockLiquid net.minecraft.util.Vec3 getFlowVector(net.minecraft.world.IBlockAccess, int, int, int)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-</root>

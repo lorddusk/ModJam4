@@ -1,21 +1,51 @@
 buildscript {
     repositories {
         mavenCentral()
+			mavenLocal()
         maven {
-            name = "forge"
-            url = "http://files.minecraftforge.net/maven"
+            name = 'ForgeFS'
+            url = 'http://files.minecraftforge.net/maven'
         }
-        maven {
+		maven {
             name = "sonatype"
             url = "https://oss.sonatype.org/content/repositories/snapshots/"
         }
-    }
+
+	}
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
     }
 }
 
+repositories {
+    maven {
+        name 'CB Maven FS'
+        url "http://chickenbones.net/maven/"
+    }
+maven {
+         name "ProfMobius Maven FS"
+         url "http://mobiusstrip.eu/maven"
+     }
+    maven {
+        name 'DVS1 Maven FS'
+        url 'http://dvs1.progwml6.com/files/maven'
+    }
+    maven {
+        name 'ForgeFS'
+        url 'http://files.minecraftforge.net/maven'
+     }
+}
+
 apply plugin: 'forge'
+
+ext.configFile = file "build.properties"
+
+configFile.withReader {
+    // Load config. It shall from now be referenced as simply config or project.config
+    def prop = new Properties()
+    prop.load(it)
+    project.ext.config = new ConfigSlurper().parse prop
+}
 
 version = "1.0"
 group= "com.yourname.modid" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
@@ -25,21 +55,18 @@ minecraft {
     version = "1.7.2-10.12.1.1082"
     assetDir = "eclipse/assets"
 }
+configurations {
+    deployerJars
+}
 
 dependencies {
-    // you may put jars on which you depend on in ./libs
-    // or you may define them like so..
-    //compile "some.group:artifact:version:classifier"
-    //compile "some.group:artifact:version"
-      
-    // real examples
-    //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
-    //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
-
-    // for more info...
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
-
+    compile "mantle:Mantle:${config.minecraft_version}-${config.mantle_version}:deobf"
+	compile "codechicken:CodeChickenLib:${config.minecraft_version}-${config.CCLIB_version}:dev"
+    compile "codechicken:ForgeMultipart:${config.minecraft_version}-${config.FMP_version}:dev"
+	compile "codechicken:CodeChickenCore:${config.minecraft_version}-${config.ccc_version}:dev"
+    compile "codechicken:NotEnoughItems:${config.minecraft_version}-${config.NEI_version}:dev"
+	compile "mcp.mobius.waila:Waila:${config.waila_version}:dev"
+	deployerJars 'org.apache.maven.wagon:wagon-ssh:2.2'
 }
 
 processResources
@@ -60,4 +87,25 @@ processResources
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
+}
+
+jar {
+    manifest {
+        attributes 'FMLCorePlugin': 'tconstruct.preloader.TConstructLoaderContainer'
+        attributes 'FMLCorePluginContainsFMLMod': 'true'
+    }
+}
+
+// Create deobf dev jars
+task deobfJar(type: Jar) {
+    from sourceSets.main.output
+    classifier = 'deobf'
+	manifest {
+        attributes 'FMLCorePlugin': 'tconstruct.preloader.TConstructLoaderContainer'
+        attributes 'FMLCorePluginContainsFMLMod': 'true'
+    }
+}
+
+artifacts {
+    archives deobfJar
 }
