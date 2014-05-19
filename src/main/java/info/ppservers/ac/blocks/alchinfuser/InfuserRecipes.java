@@ -36,7 +36,7 @@ public class InfuserRecipes {
         alchInfuserRecipe.addRecipe(new ItemStack(ItemHandler.alchGem,1,3), new ItemStack(Items.diamond), new ItemStack(ItemHandler.alchGem,1,2));
         alchInfuserRecipe.addRecipe(new ItemStack(ItemHandler.alchGem,1,3), new ItemStack(Items.emerald), new ItemStack(ItemHandler.alchGem,1,2));
         //tier 1 > water
-        alchInfuserRecipe.addRecipe(new ItemStack(ItemHandler.waterGem,1,0), new ItemStack(Items.reeds),new ItemStack(ItemHandler.alchGem,1,1));
+        alchInfuserRecipe.addRecipe(new ItemStack(ItemHandler.waterGem,1,0), new ItemStack(Items.reeds,64,0),new ItemStack(ItemHandler.alchGem,1,1));
     }
 
     /**
